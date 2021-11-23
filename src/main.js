@@ -1,32 +1,45 @@
 import datos from "./data/athletes/athletes.js";
-import { computeData, functionAll, sortData, sortByAge, sortByName, allCountries, allSport } from "./data.js";
+import { genderAll, computeDataTwo, functionAll, sortData, sortByAge, sortByName, allCountries, allSport } from "./data.js";
 
 const arrayAthletes = datos.athletes;//aqui guardo la data de todos los atletas
 const arrayCountries = sortData(Array.from(allCountries(arrayAthletes))).reverse();//array de paises
 const arraySport = sortData(Array.from(allSport(arrayAthletes))).reverse();// array de dportes
 const team = document.getElementById('team');//select de paises
 const sport = document.getElementById('sport');//select de dorpote
-const orderBySelect = document.getElementById('orderBySelect');//select para ordenar 
+const orderBySelect = document.getElementById('orderBySelect');//select para ordenar
+const gender = document.getElementById('gender');
 
-
+// codigo para crear las opciones de genero
+let containerGender = document.querySelector('.containerGender');//form gender
+  let g = Array.from(genderAll(arrayAthletes));
+  for (let x = 0; x<g.length; x++) {
+  let optionGender = document.createElement('option');
+  optionGender.value= g[x];
+  optionGender.innerHTML = g[x];
+  containerGender.gender.appendChild(optionGender);
+  console.log(optionGender, 'ay');
+  }
 // una funcion  que retorna con la plantilla de un solo atleta que es un string (es un html)
 const generateAthleteTemplate = (athlete) => {
 
   const athletegender = athlete.gender === "F" ? "./imagenes/atletafemenino2.jpg" : "./imagenes/atletasmasculinos.jpg"
   return `<article class="sportsContainer">
-    <section class="boxImgAthlete">
-        <img class="classAthlete" src= ${athletegender}>
-    </section>
-    <section class="tableAthletes">
-        <p class="nameAthlete">Nombre:${athlete.name}</p>
-        <p>&#128308 Genero:${athlete.gender}</p>
-        <p>&#128308 Altura:${athlete.height}</p>
-        <p>&#128308 Deporte:${athlete.sport}</p>
-        <p>&#128308 Peso:${athlete.weight}</p>
-        <p>&#128308 Pais:${athlete.team}</p>
-        <p>&#128308 Edad:${athlete.age}</p>
-        <p>&#128308 Medalla:${athlete.medal}</p>
-    </section>
+
+    <h2 class="nameAthlete">${athlete.name}</h2>
+    <section class="infoAthlete">
+      <figure class="boxImgAthlete">
+          <img class="classAthlete" src= ${athletegender}>
+      </figure>
+      <section class="tableAthletes">
+          <p> Genero: ${athlete.gender}</p>
+          <p> Altura: ${athlete.height}</p>
+          <p> Deporte: ${athlete.sport}</p>
+          <p> Peso: ${athlete.weight}</p>
+          <p> Pais: ${athlete.team}</p>
+          <p> Edad: ${athlete.age}</p>
+          <p> Medalla: ${athlete.medal}</p>
+      </section>
+    </section>  
   </article>`
 }
 // funcion que retorna plantilla de  optiones de los filtros
@@ -68,53 +81,46 @@ const filterBySportFunc = (sportSelected) => {/*funcion que me retorna una funci
   que sean igual al valor del select */
   return (athlete) => athlete.sport == sportSelected;
 }
+
+const filterByGender = (genderSelected) => {
+  return (athlete) => athlete.gender == genderSelected;
+}
+
 let filtersToSort = [];/*esta varieble la utilizo para guardar todos los filtros realizados y 
 utilizarlos para ordenar.*/
 
 //funcion que trabaja con todos los filtros.
 const functionFilterGrouping = () => {
 
+
   const sportSelected = sport.value;//*guardo el valor(la accion del usuario)
   const teamSelected = team.value;//*guardo el valor(la accion del usuario)
+  const genderSelected = gender.value;
+  let filteredAthletes = arrayAthletes;// arreglo local con el que voy a filtrar sin dañar mi arreglo original.
 
   /* uso condicionales para comparar: si el valor de mis dos select es igual igual a "todos" se mostrara 
    la data completa sin filtrar  y con un map nos debuelve el arreglo modificado con la platilla de los atletas */
-  if (teamSelected === "todos" && sportSelected === "todos") {
+  if (teamSelected !== "todos" ) {
 
-    insertHtmlAtheles(arrayAthletes.map(generateAthleteTemplate).join(''));
-    filtersToSort = arrayAthletes;
-
-  }
-  if (teamSelected !== "todos" && sportSelected === "todos") {
-    let filterOnlyByCountry = functionAll(arrayAthletes, filterByTeamFunc(teamSelected));
-    filtersToSort = filterOnlyByCountry;
-    insertHtmlAtheles(filterOnlyByCountry.map(generateAthleteTemplate).join(''));
+    filteredAthletes = functionAll(filteredAthletes, filterByTeamFunc(teamSelected));
 
   }
+  if (sportSelected !== "todos" ) {
 
-  /*pero si el usuario selecciona la opcion todos en el filtro "pais" y selecciona un deporte que no es igual "todos"
-  utilizo mi funcion para filtrar donde le paso como argumento la data de los altetas y el otro argumento seria mi 
-  condicion que es la funcion que me retorna una funcion que filtra  atletas por pais que sean igual al valor del select */
-  if (teamSelected === "todos" && sportSelected !== "todos") {
-    let filteredAthletes = functionAll(arrayAthletes, filterBySportFunc(sportSelected));
-    filtersToSort = filteredAthletes;
+    filteredAthletes = functionAll(filteredAthletes, filterBySportFunc(sportSelected));
+    
+  }
+  if (genderSelected != "todos") {
+
+    filteredAthletes = functionAll(filteredAthletes, filterByGender(genderSelected));
+  }
+
+  filtersToSort = filteredAthletes;
+
     insertHtmlAtheles(filteredAthletes.map(generateAthleteTemplate).join(''));
 
-  }
-  if (teamSelected !== "todos" && sportSelected !== "todos") {
-    //primero hago el filtro de atletas por pais que sean igual al valor del select
-    const filteredByTeam = functionAll(arrayAthletes, filterByTeamFunc(teamSelected));
-    /*despues ese nuevo arreglo filtrado lo vuelvo a filtrar  y le coloco como condicion mi funcion que filtra atletas
-    por deporte que sea igual al valor seleccionado por el usuario.*/
-    const filteredByTeamAndSport = functionAll(filteredByTeam, filterBySportFunc(sportSelected));
-    filtersToSort = filteredByTeamAndSport;
-    insertHtmlAtheles(filteredByTeamAndSport.map(generateAthleteTemplate).join(''));
-
-  }
-  //console.log("containerFatherMain: ", document.getElementById('containerFatherMain'));
-  document.getElementById('imgBetterWord').style.display = 'none';//ocultamos
+  document.getElementById('containerFatherMain').style.display = 'none';//ocultamos
   document.getElementById('carousel').style.display = 'none';//ocultamos
-  //document.getElementById('displaySport').style.display = 'block';//mostramos
   document.getElementById('displayOrder').style.display = 'block';//mostramos
 
 };
@@ -122,6 +128,7 @@ const functionFilterGrouping = () => {
 
 team.addEventListener('change', functionFilterGrouping);
 sport.addEventListener('change', functionFilterGrouping);
+gender.addEventListener('change', functionFilterGrouping);
 
 
 //orderBySelect es donde se encuentra el select de mis opciones para ordenar.
@@ -148,7 +155,40 @@ orderBySelect.addEventListener('change', (event) => {
 });
 
 //Nai
-computeData(datos.athletes, "Gold")
-computeData(datos.athletes, "Silver")
-computeData(datos.athletes, "Bronze")
+//FUNCION PARA CREAR TABLA DE RANKING DE PAISES 
+let tableMedals = computeDataTwo(datos.athletes); //Meto mi funcion en una variable 
 
+let tableRankingTeam = document.getElementById("tableMedals"); //accedo a la tabla en el html 
+let tableBody = document.createElement("tbody"); //accedo a crear el cuerpo de la tabla,contiene a un bloque de filas ( tr )
+
+for (let i = 0; i <= 9; i++) { //Con un for recorro mi var que tiene el objeto hasta la posicion 9 
+  const posititionTable = tableMedals[i]; //
+
+  let row = document.createElement("tr");
+
+  let td = document.createElement("td");
+  td.innerText = posititionTable.team;
+  row.appendChild(td);
+
+  td = document.createElement("td");
+  td.innerText = posititionTable.gold;
+  row.appendChild(td);
+
+  td = document.createElement("td");
+  td.innerText = posititionTable.silver;
+  row.appendChild(td);
+
+  td = document.createElement("td");
+  td.innerText = posititionTable.bronce;
+  row.appendChild(td);
+
+  td = document.createElement("td");
+  td.innerText = posititionTable.total;
+  row.appendChild(td);
+
+  tableBody.appendChild(row);
+
+  //console.log(posititionTable);
+
+}
+tableRankingTeam.appendChild(tableBody);
