@@ -1,5 +1,5 @@
 import datos from "./data/athletes/athletes.js";
-import { genderAll, computeDataTwo, functionAll, sortData, sortByAge, sortByName, allCountries, allSport } from "./data.js";
+import { genderAll,filterByTeamFunc,filterBySportFunc,filterByGender, computeDataTwo, functionAll, sortData, sortByAge, sortByName, allCountries, allSport } from "./data.js";
 
 const arrayAthletes = datos.athletes;//aqui guardo la data de todos los atletas
 const arrayCountries = sortData(Array.from(allCountries(arrayAthletes))).reverse();//array de paises
@@ -16,8 +16,7 @@ let containerGender = document.querySelector('.containerGender');//form gender
   let optionGender = document.createElement('option');
   optionGender.value= g[x];
   optionGender.innerHTML = g[x];
-  containerGender.gender.appendChild(optionGender);
-  console.log(optionGender, 'ay');
+  containerGender.gender.appendChild(optionGender); 
   }
 // una funcion  que retorna con la plantilla de un solo atleta que es un string (es un html)
 const generateAthleteTemplate = (athlete) => {
@@ -71,26 +70,12 @@ insertHtmArray(team, htmlCountrie);
 let htmlSport = arraySport.map(generateOptionTemplate).join("");
 insertHtmArray(sport, htmlSport);
 
-//declaro estas dos funciones afuera porque necesito usarlas en los dos addEventListener
-const filterByTeamFunc = (teamSelected) => {/*funcion que me retorna una funcion los atletas de un pais 
-  que sean igual al valor del select */
-  return (athlete) => athlete.team == teamSelected;
-}
-
-const filterBySportFunc = (sportSelected) => {/*funcion que me retorna una funcion de atletas por deportes 
-  que sean igual al valor del select */
-  return (athlete) => athlete.sport == sportSelected;
-}
-
-const filterByGender = (genderSelected) => {
-  return (athlete) => athlete.gender == genderSelected;
-}
 
 let filtersToSort = [];/*esta varieble la utilizo para guardar todos los filtros realizados y 
 utilizarlos para ordenar.*/
 
 //funcion que trabaja con todos los filtros.
-const functionFilterGrouping = () => {
+ const functionFilterGrouping = () => {
 
 
   const sportSelected = sport.value;//*guardo el valor(la accion del usuario)
@@ -169,6 +154,7 @@ let tableRankingTeam = document.getElementById("tableMedals"); //accedo a la tab
 let tableBody = document.createElement("tbody"); //accedo a crear el cuerpo de la tabla,contiene a un bloque de filas ( tr )
 
 for (let i = 0; i <= 9; i++) { //Con un for recorro mi var que tiene el objeto hasta la posicion 9 
+  
   const posititionTable = tableMedals[i]; //
 
   let row = document.createElement("tr");
