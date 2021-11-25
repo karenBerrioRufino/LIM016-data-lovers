@@ -157,6 +157,7 @@ orderBySelect.addEventListener('change', (event) => {
 //Nai
 //FUNCION PARA CREAR TABLA DE RANKING DE PAISES 
 let tableMedals = computeDataTwo(datos.athletes); //Meto mi funcion en una variable 
+//console.log(tableMedals);
 
 let tableRankingTeam = document.getElementById("tableMedals"); //accedo a la tabla en el html 
 let tableBody = document.createElement("tbody"); //accedo a crear el cuerpo de la tabla,contiene a un bloque de filas ( tr )
@@ -167,28 +168,57 @@ for (let i = 0; i <= 9; i++) { //Con un for recorro mi var que tiene el objeto h
   let row = document.createElement("tr");
 
   let td = document.createElement("td");
-  td.innerText = posititionTable.team;
+  td.innerHTML = posititionTable.team;
   row.appendChild(td);
 
   td = document.createElement("td");
-  td.innerText = posititionTable.gold;
+  td.innerHTML = posititionTable.gold;
   row.appendChild(td);
 
   td = document.createElement("td");
-  td.innerText = posititionTable.silver;
+  td.innerHTML = posititionTable.silver;
   row.appendChild(td);
 
   td = document.createElement("td");
-  td.innerText = posititionTable.bronce;
+  td.innerHTML = posititionTable.bronce;
   row.appendChild(td);
 
   td = document.createElement("td");
-  td.innerText = posititionTable.total;
+  td.innerHTML = posititionTable.total;
   row.appendChild(td);
 
   tableBody.appendChild(row);
-
-  //console.log(posititionTable);
-
 }
 tableRankingTeam.appendChild(tableBody);
+
+//Esta es la tabla que aparece en el modal 
+
+let modalTable = document.getElementById("tableMedalsModal");
+let bodyTableMedal = document.createElement("tbody");
+
+tableMedals.forEach(modal=>{
+  let filaModal = document.createElement("tr");
+  let tdModal = document.createElement("td");
+  tdModal.innerHTML = modal.team;
+  filaModal.appendChild(tdModal);
+
+  tdModal = document.createElement("td");
+  tdModal.innerHTML = modal.gold;
+  filaModal.appendChild(tdModal);
+
+  tdModal = document.createElement("td");
+  tdModal.innerHTML = modal.silver;
+  filaModal.appendChild(tdModal);
+
+  tdModal = document.createElement("td");
+  tdModal.innerHTML = modal.bronce;
+  filaModal.appendChild(tdModal);
+
+  tdModal = document.createElement("td");
+  tdModal.innerHTML = modal.total;
+  filaModal.appendChild(tdModal);
+
+  bodyTableMedal.appendChild(filaModal);
+});
+
+modalTable.appendChild(bodyTableMedal);

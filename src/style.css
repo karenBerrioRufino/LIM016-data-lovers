@@ -114,7 +114,10 @@ header{
     align-content: center;
     border-radius: 100%;
   }
-  .indicator li a:hover { background-color: #F4D63A; }
+  .indicator li a:hover { 
+      background-color: #F4D63A; 
+      color: #00133A;
+    }
 
 /*Ana 10/11/2021*/
 .containerFatherMain{
@@ -143,11 +146,18 @@ header{
    
 }
 /*10/11/2021*/
+.mascotaTabla{
+    position: absolute;
+    height: 100%;
+    width: 400px;
+    left: -15px;
+    top: 900px;
+}
 .tableMedals{
-    margin-left: 30px;
-    background-image: url(./imagenes/mascotas.png.jpeg);
-    background-size: 100% 100%; 
+    /*background-image: url(./imagenes/mascotas.png.jpeg);
+    background-size: 100% 100%; */
     border: none;
+    height: 500px; /*Altura de la tabla*/
     border-collapse: collapse; /*Para que las celdas se unan*/ 
     font-family:'Handlee', cursive;
   }
@@ -165,14 +175,28 @@ header{
       background-color: rgba(255,255,255,0.6 ); /* En este caso sería color de fondo blanco con 85% de transparencia.*/
   }
   .tableMedals td{ /*Esto es cada celda*/
-    font-size: 15px;
+    font-size: 20px;
     color:#050505;
     padding: 1px 10px;
     border-bottom:1px solid #23a4c3;
     font-weight: 550;
     background-color: rgba(255,255,255,0.6); /* En este caso sería color de fondo blanco con 85% de transparencia.*/
   }
-
+.buttonMedals{
+    border-radius: 15px;
+    width: 150px;
+    height: 30px;
+    left: 517px;
+    top: 2500px;
+    background: #4E99CF;
+    border-radius: 20px;
+    font-family:'Handlee', cursive;
+    font-size: 20px;
+    color:#f8f7f7;
+}
+button:hover { 
+    background-color: #F4D63A; 
+    color: #00133A;}
 
 .filterContainer {
     background-color: #00133A;
