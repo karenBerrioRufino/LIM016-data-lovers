@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "src/index.html",
   "license": "MIT",
-  "scripts": {
+  "scripts": { 
     "htmlhint": "htmlhint src/*.html test/*.html",
     "eslint": "eslint --ext .js src/ test/",
     "pretest": "npm run eslint && npm run htmlhint",

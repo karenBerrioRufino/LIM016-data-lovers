@@ -29,9 +29,25 @@ const allTeams = (athletes) => {
 
 const genderAll = (array) => {
   const newArrGender = array.map(gen2 => {
-    return gen2.gender;  
+    return gen2.gender;
   });
-    return new Set(newArrGender);
+  return new Set(newArrGender);
+}
+
+
+//declaro estas dos funciones afuera porque necesito usarlas en los dos addEventListener
+const filterByTeamFunc = (teamSelected) => {/*funcion que me retorna una funcion los atletas de un pais 
+  que sean igual al valor del select */
+  return (athlete) => athlete.team == teamSelected;
+}
+
+const filterBySportFunc = (sportSelected) => {/*funcion que me retorna una funcion de atletas por deportes 
+  que sean igual al valor del select */
+  return (athlete) => athlete.sport == sportSelected;
+}
+
+const filterByGender = (genderSelected) => {
+  return (athlete) => athlete.gender == genderSelected;
 }
 /*
  Este funcion recive 3 parametros, el primero es un Array de Athletas
@@ -77,50 +93,50 @@ const sortByAge = (athlete1, athlete2) => {//ordeno por edad
   return 0;
 };
 
-const computeDataTwo = (datos) =>{
-  const mapCountry = new Map(); 
+const computeDataTwo = (datos) => {
+  const mapCountry = new Map();
   //Aqui inicializamos nuetro mapa de paises con todas las medallas en cero 
- for (let index = 0; index < datos.length; index++) {
-   const element = datos[index];
-   if (!mapCountry.has(element.team)) { 
-     const initValue = {silver: 0, gold: 0,bronze: 0, total: 0}
-     mapCountry.set(element.team, initValue); //creando por primera vez el set dentro del Map 
-   }
- }
- 
- //Aqui vamos a contar todas las medallas 
- for (let index = 0; index < datos.length; index++) {
-  const element = datos[index];
-  const country = mapCountry.get(element.team); 
-  if (element.medal === "Gold") {
-   country.gold = country.gold +1;
+  for (let index = 0; index < datos.length; index++) {
+    const element = datos[index];
+    if (!mapCountry.has(element.team)) {
+      const initValue = { silver: 0, gold: 0, bronze: 0, total: 0 }
+      mapCountry.set(element.team, initValue); //creando por primera vez el set dentro del Map 
+    }
   }
-  if (element.medal === "Bronze") {
-    country.bronze = country.bronze +1;
-   }
-   if (element.medal === "Silver") {
-    country.silver = country.silver +1;
-   }
-   country.total = country.total +1;
-   mapCountry.set(element.team, country) ///Aqui reemplazamos con el nuevo objeto 
-}
 
-//transformando el Map en un array de noc y total 
- const array = [];
-mapCountry.forEach((value,key)=>{
-  const totalMedalByNoc = {team: key, gold:value.gold, silver:value.silver, bronce:value.bronze, total: value.total};
-  array.push(totalMedalByNoc);
-  console.log(totalMedalByNoc);
-}) 
-//Ordenando de mayor a menor el total de medallas por pais
- return array.sort(function(prev, next){
-  if(prev.total < next.total){
-    return 1;
+  //Aqui vamos a contar todas las medallas 
+  for (let index = 0; index < datos.length; index++) {
+    const element = datos[index];
+    const country = mapCountry.get(element.team);
+    if (element.medal === "Gold") {
+      country.gold = country.gold + 1;
+    }
+    if (element.medal === "Bronze") {
+      country.bronze = country.bronze + 1;
+    }
+    if (element.medal === "Silver") {
+      country.silver = country.silver + 1;
+    }
+    country.total = country.total + 1;
+    mapCountry.set(element.team, country) ///Aqui reemplazamos con el nuevo objeto 
   }
-  if (prev.total > next.total){
-    return -1;
-  } return 0;
-});
+
+  //transformando el Map en un array de noc y total 
+  const array = [];
+  mapCountry.forEach((value, key) => {
+    const totalMedalByNoc = { team: key, gold: value.gold, silver: value.silver, bronce: value.bronze, total: value.total };
+    array.push(totalMedalByNoc);
+    console.log(totalMedalByNoc);
+  })
+  //Ordenando de mayor a menor el total de medallas por pais
+  return array.sort(function (prev, next) {
+    if (prev.total < next.total) {
+      return 1;
+    }
+    if (prev.total > next.total) {
+      return -1;
+    } return 0;
+  });
 }
 
 
@@ -134,5 +150,8 @@ export {
   sortByName,
   sortByAge,
   computeDataTwo,
-  genderAll
+  genderAll,
+  filterByTeamFunc,
+  filterBySportFunc,
+  filterByGender,
 }
