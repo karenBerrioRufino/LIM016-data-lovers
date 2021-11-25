@@ -119,7 +119,7 @@ header{
       color: #00133A;
     }
 
-/*Ana 10/11/2021*/
+/*10/11/2021*/
 .containerFatherMain{
     
     display: flex;
@@ -127,11 +127,8 @@ header{
     justify-content: center;
     align-items: center;
     text-align: center;
-    border-radius: 4px;
-   
-    
+    border-radius: 4px; 
 }
-
 
 .sectionImgWord{
     max-width: 40em;
@@ -200,17 +197,18 @@ button:hover {
 
 .filterContainer {
     background-color: #00133A;
-    margin: auto;
-    height: 80px;
+    /*margin: auto;*/
+    height: 6vw;
     display: flex;
-    justify-content:center;
+    justify-content:space-between;
 }
 
 .filterTeamAndSport {
-    font-size: 15px;
-    padding: 20px;
-    width: 300px;
-    height: 17px;  
+    font-size: 1em;;
+    padding: 1.5vw;
+    width: 45vh;
+    height: 15vw;
+    
 }
 
 
@@ -220,32 +218,54 @@ button:hover {
 
 label {
     font-family:'Handlee', cursive;
-    border-radius: 50px;
     justify-self: center;
-    font-size: 15px;
-    width: 200px;
-    margin-right: 10px;
+    /*font-size: 15px;*/
+    /*width: 200px;*/
+    /*margin-right: 10px;*/
     color: #f8f7f7;
     font-weight: bold;
    
 }
 
 select{
-    
+    background-color:#23a3c3f1;
     border-radius: 50px;
     justify-self:center;
     font-size: 15px;
-    width: 200px;
-    
+    height: 1.5vw;
+    width: 15vw;
+}
+select:hover {
+    background-color:#F4D63A;
+  }
+/*----------*/
+
+.error2{
+    display: none;
+    flex-direction: column;
+    align-content: center;
 }
 
+.h1Error{
+    text-align: center;
+    font-family: 'Handlee', cursive;
+    font-weight: bold;
+    color: #00133A;
+ 
+}
 
+.imgMsjError{
+    max-width: 25%;
+    max-height: 25%;
+    align-self: center;
+}
+/*----------*/
 .nameAthlete{
     text-align: center;
-    font-size: 1rem;
+    font-size: 19px;
     font-family:'Handlee', cursive;
     font-weight: bold;
-    color: #050505;
+    color:#00133A;
     /*width: min-content;*/
     width: 20vw;
     border-radius: 20px;
@@ -271,17 +291,18 @@ select{
     border-radius: 20px;
     height: fit-content;
     width: fit-content;
-    margin: 1rem;
+    margin: 1rem;/*organizacion de la plantilla, quedan todos derechos.*/
     box-sizing: border-box;
 }
+
 .infoAthlete{
     display: flex;
-    gap: 2vw;
     justify-content: center;
 }
+
 p{
     font-family:'Handlee', cursive;
-    font-weight: bold;
+    font-weight: bold;/*grueso de letras*/
 
 }
 .classAthlete {
@@ -293,7 +314,7 @@ p{
 .boxImgAthlete {
     align-self: center;
     justify-content: center;
-    min-width: max-content;
+    margin: 0.5em;
     /*border-radius: 20px;*/
 }
 
@@ -303,6 +324,9 @@ p{
     max-width: 100%;
     max-height: 100%;
     margin: .5em;
+    background-color: #eeeeee8f;
+    border-radius: 10px;
+
 }
 
 .grid {

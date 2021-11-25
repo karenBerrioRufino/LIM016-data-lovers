@@ -50,21 +50,21 @@
     <section class="filterContainer">
 
       <div class="filterTeamAndSport">
-        <label class="taitelFilter">SELECCIONA UN PAIS:</label>
+        <label> PAIS:<br></label>
         <select id="team">
           <!--filtro de pais-->
         </select>
       </div>
 
       <div id="displaySport" class="filterTeamAndSport">
-        <label class="taitelFilter">DEPORTE:</label>
+        <label> DEPORTE:<br></label>
         <select id="sport">
           <!--filtro de deporte-->
         </select>
       </div>
 
       <form class="containerGender filterTeamAndSport">
-        <label class="taitelFilter">SELECCIONA UN GENERO:</label>
+        <label> GENERO:<br></label>
         <select name="gender" id="gender" class="gender">
           <option value="todos" selected >Todos</option>
         </select>
@@ -73,7 +73,7 @@
       <!-- Lista de selección  para ordenar-->
 
       <div id="displayOrder" class="filterTeamAndSport">
-        <label class="taitelFilter">ORDENAR:</label>
+        <label>ORDENAR:</label>
         <select id="orderBySelect" name="combo">
           <!-- Opciones de la lista (*con selected puedo colocar una opcion por defecto* OJO) -->
           <option value="1">Edad</option>
@@ -84,13 +84,19 @@
 
     </section>
     <br>
-
-    <section id="gridForTest" class="grid">
-
     
-      <!----plantilla de los atletas-->
+    <!--mensaje de error-->
+    <section id="error" class="error2">
+      <h1  class="h1Error"> No se encontraron atletas para esta busqueda.<br>¡Intenta nuevamente!</h1>
+      
+      <img class="imgMsjError"src= "./imagenes/mascotasoficiales.png">  
+   </section>
+    
+    <section id="gridForTest" class="grid">
+<!----plantilla de los atletas-->
     </section>
-
+    
+    
     <main>
 
       <section id="containerFatherMain" class="containerFatherMain">

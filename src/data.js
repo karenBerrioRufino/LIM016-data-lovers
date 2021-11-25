@@ -5,7 +5,7 @@ const functionAll = (array, condicion) => {
 };
 
 
-/* funcion para obtener un arreglo de solo paises y deportes*/
+/* funcion para obtener un arreglo de solo paises, deportes y genero*/
 const allCountries = (countries) => {
   const newArrCountries = countries.map(newTeam => {
     return newTeam.team

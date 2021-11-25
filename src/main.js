@@ -22,22 +22,22 @@ let containerGender = document.querySelector('.containerGender');//form gender
 // una funcion  que retorna con la plantilla de un solo atleta que es un string (es un html)
 const generateAthleteTemplate = (athlete) => {
 
-  const athletegender = athlete.gender === "F" ? "./imagenes/atletafemenino2.jpg" : "./imagenes/atletasmasculinos.jpg"
+  const athletegender = athlete.gender === "F" ? "./imagenes/femolimpi.PNG" : "./imagenes/atletasmasculinos.jpg"
   return `<article class="sportsContainer">
 
-    <h2 class="nameAthlete">${athlete.name}</h2>
+    <h1 class="nameAthlete">${athlete.name}</h1>
     <section class="infoAthlete">
       <figure class="boxImgAthlete">
           <img class="classAthlete" src= ${athletegender}>
       </figure>
       <section class="tableAthletes">
-          <p> Genero: ${athlete.gender}</p>
-          <p> Altura: ${athlete.height}</p>
-          <p> Deporte: ${athlete.sport}</p>
-          <p> Peso: ${athlete.weight}</p>
-          <p> Pais: ${athlete.team}</p>
-          <p> Edad: ${athlete.age}</p>
-          <p> Medalla: ${athlete.medal}</p>
+            <p> Genero: ${athlete.gender}</p>
+            <p> Altura: ${athlete.height}</p>
+            <p> Deporte: ${athlete.sport}</p>
+            <p> Peso: ${athlete.weight}</p>
+            <p> Pais: ${athlete.team}</p>
+            <p> Edad: ${athlete.age}</p>
+            <p> Medalla: ${athlete.medal}</p>     
       </section>
     </section>  
   </article>`
@@ -115,14 +115,21 @@ const functionFilterGrouping = () => {
     filteredAthletes = functionAll(filteredAthletes, filterByGender(genderSelected));
   }
 
-  filtersToSort = filteredAthletes;
-
+    filtersToSort = filteredAthletes;
     insertHtmlAtheles(filteredAthletes.map(generateAthleteTemplate).join(''));
+  
 
   document.getElementById('containerFatherMain').style.display = 'none';//ocultamos
   document.getElementById('carousel').style.display = 'none';//ocultamos
   document.getElementById('displayOrder').style.display = 'block';//mostramos
-
+   
+  //mensaje para indicar que no existe el atleta.
+  if (filteredAthletes == 0) {
+    document.getElementById('error').style.display ='flex';
+  }else{
+    document.getElementById('error').style.display ='none';
+  }
+  
 };
 
 
