@@ -1,108 +1,108 @@
 <!DOCTYPE html>
-  <html>
+<html>
 
-  <head>
-    <meta charset="utf-8">
-    <title>Data Lovers</title>
-    <link rel="stylesheet" href="style.css" />
-    <script src="https://kit.fontawesome.com/c47856f5c7.js" crossorigin="anonymous"></script>
-  </head>
+<head>
+  <meta charset="utf-8">
+  <title>Data Lovers</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://kit.fontawesome.com/c47856f5c7.js" crossorigin="anonymous"></script>
+</head>
 
-  <body>
-    <header>
-      <nav class="containerHeader">
-        <p>Um mundo novo</p>
-        <img src="./imagenes/headerLogo.png" alt="Header Logo">
-      </nav>
-    </header>
+<body>
+  <header>
+    <nav class="containerHeader">
+      <p>Um mundo novo</p>
+      <img src="./imagenes/headerLogo.png" alt="Header Logo">
+    </nav>
+  </header>
 
-    <!--CARRUSEL DE FOTOS-->
-    <div class="carouselContainer" id="carousel">
-      <ul class="sliderImg">
-        <li id="slide1"><img src="./imagenes/carousel1.jpeg" alt="Photo1">
-          <p class="txt">Presentación de las mascotas VINICIUS y TOM</p>
-        </li>
-        <li id="slide2"><img src="./imagenes/carousel2.jpeg" alt="Photo2">
-          <p class="txt">Ceremonia de clausura de los Juegos Olimpicos Rio 2016</p>
-        </li>
-        <li id="slide3"><img src="./imagenes/carousel5.jpeg" alt="Photo3">
-          <p class="txt">La atleta colombiana Caterine Ibarguen realiza su triple salto.</p>
-        </li>
-        <li id="slide4"><img src="./imagenes/carousel4.jpeg" alt="Photo4">
-          <p class="txt">Debut de atletas peruanas</p>
-        </li>
-        <li id="slide5"><img src="./imagenes/carousel3.jpeg" alt="Photo5">
-          <p class="txt">Complejo deportivo "Parque Olímpico de Barra de Tijuca", Brasil</p>
-        </li>
-      </ul>
-      <ul class="indicator">
-        <li><a href="#slide1">1</a></li>
-        <li><a href="#slide2">2</a></li>
-        <li><a href="#slide3">3</a></li>
-        <li><a href="#slide4">4</a></li>
-        <li><a href="#slide5">5</a></li>
-      </ul>
+  <!--CARRUSEL DE FOTOS-->
+  <div class="carouselContainer" id="carousel">
+    <ul class="sliderImg">
+      <li id="slide1"><img src="./imagenes/carousel1.jpeg" alt="Photo1">
+        <p class="txt">Presentación de las mascotas VINICIUS y TOM</p>
+      </li>
+      <li id="slide2"><img src="./imagenes/carousel2.jpeg" alt="Photo2">
+        <p class="txt">Ceremonia de clausura de los Juegos Olimpicos Rio 2016</p>
+      </li>
+      <li id="slide3"><img src="./imagenes/carousel5.jpeg" alt="Photo3">
+        <p class="txt">La atleta colombiana Caterine Ibarguen realiza su triple salto.</p>
+      </li>
+      <li id="slide4"><img src="./imagenes/carousel4.jpeg" alt="Photo4">
+        <p class="txt">Debut de atletas peruanas</p>
+      </li>
+      <li id="slide5"><img src="./imagenes/carousel3.jpeg" alt="Photo5">
+        <p class="txt">Complejo deportivo "Parque Olímpico de Barra de Tijuca", Brasil</p>
+      </li>
+    </ul>
+    <ul class="indicator">
+      <li><a href="#slide1">1</a></li>
+      <li><a href="#slide2">2</a></li>
+      <li><a href="#slide3">3</a></li>
+      <li><a href="#slide4">4</a></li>
+      <li><a href="#slide5">5</a></li>
+    </ul>
+  </div>
+  </header>
+
+  <br>
+  <!--aqui va el filtro y el ordenar-->
+  <section class="filterContainer" id="principal">
+
+    <div class="filterTeamAndSport">
+      <label> PAIS:<br></label>
+      <select id="team">
+        <!--filtro de pais-->
+      </select>
     </div>
-    </header>
 
-    <br>
-    <!--aqui va el filtro y el ordenar-->
-    <section class="filterContainer">
+    <div id="displaySport" class="filterTeamAndSport">
+      <label> DEPORTE:<br></label>
+      <select id="sport">
+        <!--filtro de deporte-->
+      </select>
+    </div>
 
-      <div class="filterTeamAndSport">
-        <label> PAIS:<br></label>
-        <select id="team">
-          <!--filtro de pais-->
-        </select>
-      </div>
+    <form class="containerGender filterTeamAndSport">
+      <label> GENERO:<br></label>
+      <select name="gender" id="gender" class="gender">
+        <option value="todos" selected>Todos</option>
+      </select>
+    </form>
 
-      <div id="displaySport" class="filterTeamAndSport">
-        <label> DEPORTE:<br></label>
-        <select id="sport">
-          <!--filtro de deporte-->
-        </select>
-      </div>
+    <!-- Lista de selección  para ordenar-->
 
-      <form class="containerGender filterTeamAndSport">
-        <label> GENERO:<br></label>
-        <select name="gender" id="gender" class="gender">
-          <option value="todos" selected >Todos</option>
-        </select>
-      </form>
+    <div id="displayOrder" class="filterTeamAndSport">
+      <label>ORDENAR:</label>
+      <select id="orderBySelect" name="combo">
+        <!-- Opciones de la lista (*con selected puedo colocar una opcion por defecto* OJO) -->
+        <option value="1">Edad</option>
+        <option value="2">nombres de manera ascendente</option>
+        <option value="3">nombres de manera descendente</option>
+      </select>
+    </div>
 
-      <!-- Lista de selección  para ordenar-->
+  </section>
+  <br>
 
-      <div id="displayOrder" class="filterTeamAndSport">
-        <label>ORDENAR:</label>
-        <select id="orderBySelect" name="combo">
-          <!-- Opciones de la lista (*con selected puedo colocar una opcion por defecto* OJO) -->
-          <option value="1">Edad</option>
-          <option value="2">nombres de manera ascendente</option>
-          <option value="3">nombres de manera descendente</option>
-        </select>
-      </div>
+  <!--mensaje de error-->
+  <section id="error" class="error2">
+    <h1 class="h1Error"> No se encontraron atletas para esta busqueda.<br>¡Intenta nuevamente!</h1>
 
-    </section>
-    <br>
-    
-    <!--mensaje de error-->
-    <section id="error" class="error2">
-      <h1  class="h1Error"> No se encontraron atletas para esta busqueda.<br>¡Intenta nuevamente!</h1>
-      
-      <img class="imgMsjError"src= "./imagenes/mascotasoficiales.png">  
-   </section>
-    
-    <section id="gridForTest" class="grid">
-<!----plantilla de los atletas-->
-    </section>
-    
-    
-    <main>
+    <img class="imgMsjError" src="./imagenes/mascotasoficiales.png">
+  </section>
 
-      <section id="containerFatherMain" class="containerFatherMain">
-        <!--- <h1>aqui va el medallero</h1>--->
-        <div>
-          <img class="mascotaTabla" src="./imagenes/mascotaTabla.png" alt="">
+  <section id="gridForTest" class="grid">
+    <!----plantilla de los atletas-->
+  </section>
+
+
+  <main>
+
+    <section id="containerFatherMain" class="containerFatherMain">
+      <!--- <h1>aqui va el medallero</h1>--->
+      <div>
+        <img class="mascotaTabla" src="./imagenes/mascotaTabla.png" alt="">
         <table class="tableMedals" id="tableMedals" border="1">
           <caption>🥇🥈🥉
             <br>Tabla de Medallas
@@ -118,7 +118,8 @@
         <button class="buttonMedals">Ver más</button>
       </div>
       <div class="Modal">
-        <table class="tableMedals" id="tableMedalsModal" border="1">
+        <table class="tableMedalsModal" id="tableMedalsModal" border="1">
+          <button title="cerrar" class="buttonModal">X</button>
           <caption>🥇🥈🥉
             <br>Tabla de Medallas
           </caption>
@@ -130,49 +131,44 @@
             <th>Total</th>
           </tr>
         </table>
-        <button class="buttonModal">x</button>
       </div>
-
-        <!--div class="sectionImgWord">
-          <img id="imgBetterWord" class="betterWorld" src="./imagenes/un mundo mejor.png" alt="mensaje de directora">
-        </div-->
-
-      </section>
-    <br>
-    </main>
-    <footer>
-      <div class="logoFoo">
-        <img src="./imagenes/footerLogo.png" alt="Footer Logo" class="footerLogo">
-        <p>Los Juegos de Río 2016 ofrecen el mejor entorno posible para alcanzar el
-          mejor rendimiento. Los atletas disfrutan de unas instalaciones de primer
-          nivel, incluida una magnífica villa, todo ubicado en una de las ciudades
-          más bellas del mundo.
-        </p>
+    </section>
+    <!--Boton de Volver Arriba-->
+    <a href="#principal"><img class="btnArriba" id="btnArriba" title="Volver arriba" src="./imagenes/btnArriba.png" alt=""></a>
+  </main>
+  <footer>
+    <div class="logoFoo">
+      <img src="./imagenes/footerLogo.png" alt="Footer Logo" class="footerLogo">
+      <p>Los Juegos de Río 2016 ofrecen el mejor entorno posible para alcanzar el
+        mejor rendimiento. Los atletas disfrutan de unas instalaciones de primer
+        nivel, incluida una magnífica villa, todo ubicado en una de las ciudades
+        más bellas del mundo.
+      </p>
+    </div>
+    <div class="copyright">
+      <p>Copyright © 2021. Todos los derechos reservados.
+        Juegos Olímpicos - Río 2016
+      </p>
+    </div>
+    <div class="socialMedia">
+      <p>REDES SOCIALES</p>
+      <div class="fity">
+        <a href="https://www.facebook.com/rio2k16/" target="_blank">
+          <img src="./imagenes/facebook.png" alt="facebook" class="facebook" title="Facebook">
+        </a>
+        <a href="https://www.instagram.com/rio_de_janeiro_olympics_2016/?hl=es" target="_blank">
+          <img src="./imagenes/instagram.png" alt="instagram" class="instagram" title="Instagram">
+        </a>
+        <a href="https://twitter.com/Rio2016" target="_blank">
+          <img src="./imagenes/twitter.png" alt="twitter" class="twitter" title="Twitter">
+        </a>
+        <a href="https://www.youtube.com/channel/UCTl3QQTvqHFjurroKxexy2Q" target="_blank">
+          <img src="./imagenes/youtube.png" alt="youtube" class="youtube" title="Youtube">
+        </a>
       </div>
-      <div class="copyright">
-        <p>Copyright © 2021. Todos los derechos reservados.
-          Juegos Olímpicos - Río 2016
-        </p>
-      </div>
-      <div class="socialMedia">
-        <p>REDES SOCIALES</p>
-        <div class="fity">
-          <a href="https://www.facebook.com/rio2k16/" target="_blank">
-            <img src="./imagenes/facebook.png" alt="facebook" class="facebook" title="Facebook">
-          </a>
-          <a href="https://www.instagram.com/rio_de_janeiro_olympics_2016/?hl=es" target="_blank">
-            <img src="./imagenes/instagram.png" alt="instagram" class="instagram" title="Instagram">
-          </a>
-          <a href="https://twitter.com/Rio2016" target="_blank">
-            <img src="./imagenes/twitter.png" alt="twitter" class="twitter" title="Twitter">
-          </a>
-          <a href="https://www.youtube.com/channel/UCTl3QQTvqHFjurroKxexy2Q" target="_blank">
-            <img src="./imagenes/youtube.png" alt="youtube" class="youtube" title="Youtube">
-          </a>
-        </div>
-      </div>
-    </footer>
-    <script src="main.js" type="module"></script>
-  </body>
+    </div>
+  </footer>
+  <script src="main.js" type="module"></script>
+</body>
 
 </html>

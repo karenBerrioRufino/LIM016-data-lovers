@@ -9,16 +9,17 @@ const sport = document.getElementById('sport');//select de dorpote
 const orderBySelect = document.getElementById('orderBySelect');//select para ordenar
 const gender = document.getElementById('gender');
 
+
+
 // codigo para crear las opciones de genero
 let containerGender = document.querySelector('.containerGender');//form gender
-  let g = Array.from(genderAll(arrayAthletes));
-  for (let x = 0; x<g.length; x++) {
+let g = Array.from(genderAll(arrayAthletes));
+for (let x = 0; x < g.length; x++) {
   let optionGender = document.createElement('option');
-  optionGender.value= g[x];
+  optionGender.value = g[x];
   optionGender.innerHTML = g[x];
   containerGender.gender.appendChild(optionGender);
-  console.log(optionGender, 'ay');
-  }
+}
 // una funcion  que retorna con la plantilla de un solo atleta que es un string (es un html)
 const generateAthleteTemplate = (athlete) => {
 
@@ -100,36 +101,36 @@ const functionFilterGrouping = () => {
 
   /* uso condicionales para comparar: si el valor de mis dos select es igual igual a "todos" se mostrara 
    la data completa sin filtrar  y con un map nos debuelve el arreglo modificado con la platilla de los atletas */
-  if (teamSelected !== "todos" ) {
+  if (teamSelected !== "todos") {
 
     filteredAthletes = functionAll(filteredAthletes, filterByTeamFunc(teamSelected));
 
   }
-  if (sportSelected !== "todos" ) {
+  if (sportSelected !== "todos") {
 
     filteredAthletes = functionAll(filteredAthletes, filterBySportFunc(sportSelected));
-    
+
   }
   if (genderSelected != "todos") {
 
     filteredAthletes = functionAll(filteredAthletes, filterByGender(genderSelected));
   }
 
-    filtersToSort = filteredAthletes;
-    insertHtmlAtheles(filteredAthletes.map(generateAthleteTemplate).join(''));
-  
+  filtersToSort = filteredAthletes;
+  insertHtmlAtheles(filteredAthletes.map(generateAthleteTemplate).join(''));
+
 
   document.getElementById('containerFatherMain').style.display = 'none';//ocultamos
   document.getElementById('carousel').style.display = 'none';//ocultamos
   document.getElementById('displayOrder').style.display = 'block';//mostramos
-   
+
   //mensaje para indicar que no existe el atleta.
   if (filteredAthletes == 0) {
-    document.getElementById('error').style.display ='flex';
-  }else{
-    document.getElementById('error').style.display ='none';
+    document.getElementById('error').style.display = 'flex';
+  } else {
+    document.getElementById('error').style.display = 'none';
   }
-  
+
 };
 
 
@@ -161,7 +162,8 @@ orderBySelect.addEventListener('change', (event) => {
   }
 });
 
-//Nai
+
+
 //FUNCION PARA CREAR TABLA DE RANKING DE PAISES 
 let tableMedals = computeDataTwo(datos.athletes); //Meto mi funcion en una variable 
 //console.log(tableMedals);
@@ -196,6 +198,7 @@ for (let i = 0; i <= 9; i++) { //Con un for recorro mi var que tiene el objeto h
 
   tableBody.appendChild(row);
 }
+
 tableRankingTeam.appendChild(tableBody);
 
 //Esta es la tabla que aparece en el modal 
@@ -203,7 +206,7 @@ tableRankingTeam.appendChild(tableBody);
 let modalTable = document.getElementById("tableMedalsModal");
 let bodyTableMedal = document.createElement("tbody");
 
-tableMedals.forEach(modal=>{
+tableMedals.forEach(modal => {
   let filaModal = document.createElement("tr");
   let tdModal = document.createElement("td");
   tdModal.innerHTML = modal.team;
@@ -229,3 +232,17 @@ tableMedals.forEach(modal=>{
 });
 
 modalTable.appendChild(bodyTableMedal);
+
+function goTop(pxPantalla){ //Parametro de cuanto px de pantalla quiero que aparezca el boton
+  window.addEventListener("scroll", ()=>{ //agregamos un evento escroll a la ventanda del navegador
+    let scroll = document.documentElement.scrollTop;
+    console.log(scroll);
+    let buttonTop = document.getElementById("btnArriba");
+    if(scroll > pxPantalla){
+      buttonTop.style.right = 2 + "rem";
+    }else{
+      buttonTop.style.right = -10 + "rem";
+    }
+  })
+}
+goTop(600);
