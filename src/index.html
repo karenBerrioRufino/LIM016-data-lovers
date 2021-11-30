@@ -1,21 +1,17 @@
 <!DOCTYPE html>
   <html>
-
   <head>
     <meta charset="utf-8">
     <title>Data Lovers</title>
     <link rel="stylesheet" href="style.css" />
-    <script src="https://kit.fontawesome.com/c47856f5c7.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/9dd47e7c79.js" crossorigin="anonymous"></script>
   </head>
-
   <body>
     <header>
       <nav class="containerHeader">
         <p>Um mundo novo</p>
         <img src="./imagenes/headerLogo.png" alt="Header Logo">
       </nav>
-    </header>
-
     <!--CARRUSEL DE FOTOS-->
     <div class="carouselContainer" id="carousel">
       <ul class="sliderImg">
@@ -44,11 +40,9 @@
       </ul>
     </div>
     </header>
-
     <br>
     <!--aqui va el filtro y el ordenar-->
     <section class="filterContainer">
-
       <div class="filterTeamAndSport">
         <label> PAIS:<br></label>
         <select id="team">
@@ -81,7 +75,6 @@
           <option value="3">nombres de manera descendente</option>
         </select>
       </div>
-
     </section>
     <br>
     
@@ -93,12 +86,20 @@
    </section>
     
     <section id="gridForTest" class="grid">
+      <!--BUSCADOR-->
+      
+      <div class="containerSearch">
+        <input type="text" id="search" class="search" placeholder="Encuentra a un atleta" >
+        <i class="fas fa-search" id="i"></i>
+      </div>
+      
+        <ul id="lista" class="lista">  </ul>
+      
+      
+      
 <!----plantilla de los atletas-->
     </section>
-    
-    
     <main>
-
       <section id="containerFatherMain" class="containerFatherMain">
         <!--- <h1>aqui va el medallero</h1>--->
         <table class="tableMedals" id="tableMedals" border="1">
@@ -153,7 +154,7 @@
         </div>
       </div>
     </footer>
-    <script src="main.js" type="module"></script>
+    <script src="main.js" type="module" defer></script>
   </body>
 
 </html>

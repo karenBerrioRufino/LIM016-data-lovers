@@ -34,10 +34,67 @@ header{
     margin-left: 30px;
     margin-top: -60px;
 }
+/*BUSCADOR*/
+.containerSearch{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #00133A;
+    height: 50px;
+    width: 100%;
+    
+}
+.search{
+    border: none;
+    background: none;
+    outline: none; 
+    color: black;
+    font-size: 20px;
+    float:inline-start;
+    line-height: 60px;
+    transition: .3s;
+    width: 0%;
+    
+}
+.search:focus{
+    color: white;
+}
+#i{
+    font-size: 20px;
+    color: white;
+}
+::placeholder{ color: #ffffffc9;}
+.lista{
+    width: 50%;
+    background: rgb(255, 255, 255);
+    flex-direction: column;
+    z-index: 1;
+    font-family:'Handlee';
+    font-size: 20px;
+}
+li:hover{
+    background-color: #adc0e6;
+    cursor: pointer;
+}
 
-
+@media screen and (min-width:480px){ /*CELULAR*/
+    .containerSearch:hover > .search {
+        width: 190px;
+    }
+}
+@media screen and (min-width:768px){ /*TABLET*/
+    .containerSearch:hover > .search {
+        width: 300px;
+    }
+}
+@media screen and (min-width:1024px){ /*PC*/
+    .containerSearch:hover > .search {
+        width: 500px;
+    }
+}
 /* -------CARRUSEL DE FOTOS-------*/ 
-.carouselContainer{
+
+.carouselContainer{ 
     margin: auto;
 /*     background-color: #dbdce2;
  */    width: 100%;

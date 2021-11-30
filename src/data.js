@@ -33,6 +33,13 @@ const genderAll = (array) => {
   });
     return new Set(newArrGender);
 }
+const nameAth = (n) =>{
+  const newNameAth = n.map(name2 =>{
+    return name2.name;
+  });
+  return newNameAth;
+  
+}
 /*
  Este funcion recive 3 parametros, el primero es un Array de Athletas
  El segundo parametro es una funcion de comparacion que va a utilizar el metodo sort, de Array para ordernar.
@@ -110,7 +117,7 @@ const computeDataTwo = (datos) =>{
 mapCountry.forEach((value,key)=>{
   const totalMedalByNoc = {team: key, gold:value.gold, silver:value.silver, bronce:value.bronze, total: value.total};
   array.push(totalMedalByNoc);
-  console.log(totalMedalByNoc);
+  //console.log(totalMedalByNoc);
 }) 
 //Ordenando de mayor a menor el total de medallas por pais
  return array.sort(function(prev, next){
@@ -134,5 +141,6 @@ export {
   sortByName,
   sortByAge,
   computeDataTwo,
-  genderAll
+  genderAll,
+  nameAth
 }
