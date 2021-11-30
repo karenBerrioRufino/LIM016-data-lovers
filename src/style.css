@@ -1,379 +1,467 @@
 @import url('https://fonts.googleapis.com/css2?family=Handlee&display=swap');
 @import url('//db.onlinewebfonts.com/c/09de1f56f82933ed8124b02222d46188?family=Rio2016');
 * {
-    margin: 0%;
-    padding: 0%;
-    box-sizing: border-box;
-    /*para mover el modelo de caja*/
+margin: 0%;
+padding: 0%;
+box-sizing: border-box;
+/*para mover el modelo de caja*/
 }
 
 body {
-    counter-reset: none;
+counter-reset: none;
 }
-header{
-    justify-content: center;
+.imgHeader{
+    display: flex;
     width: 100%;
 }
-.containerHeader{
-    display: flex;
-    background: url(./imagenes/headerFondo.png);
-    background-size: cover;   
-    height: 130px;
-    justify-content: flex-start;
-    align-items:center;
-}
-.containerHeader img{
-    width:210px; 
-	height: 90px; 
-    margin-left: 165px;
-}
 .containerHeader p{
+    display: flex;
     font-family: "Rio2016";
     font-size: 30px;
-    color: #0089ab ;
+    color:#f8f7f7; ;
     margin-left: 30px;
-    margin-top: -60px;
+    margin-top: -80px;  
 }
-
 
 /* -------CARRUSEL DE FOTOS-------*/ 
 .carouselContainer{
-    margin: auto;
-/*     background-color: #dbdce2;
- */    width: 100%;
-    padding: 20px;
-    display: block;
-  }
-  
-  ul, li {
-      padding: 0;
-      margin: 0;
-      list-style: none;
-  }
-   img p{
-      position: relative;
-  }
-  
-  ul.sliderImg{
-    position: relative;
-    width: 100%;
-    height: 500px;
-  }
-  
-  ul.sliderImg li {
-      position: absolute;
-      left: 0px;
-      top: 0px;
-      opacity: 0;
-      width: inherit;
-      height: inherit;
-      transition: opacity .5s;
-  }
-  
-  ul.sliderImg li img{
-    width: 90%;
-    height: 500px;
-    margin-left: 5%;
-    /*object-fit: cover;*/
-  }
-  .txt{ 
-    position: absolute;
-    top: 450px; 
-    left: 80px;
-    background-color: rgba(190, 226, 190, 0.5);
-    color: rgb(53, 50, 46);
-    font-family:'Handlee', cursive;
-    font-weight: bolder;
-    font-size: 25px;
-  }
-  
-  ul.sliderImg li:first-child {
-      opacity: 1; /*Mostramos el primer <li>*/
-  }
-  ul.sliderImg li:target {
-      opacity: 1; /*Mostramos el boton que pulsemos*/
-  }
-  .indicator{
-    text-align: center;
-    margin: 20px;
-  }
-  
-  .indicator li{
-    display: inline-block;
-    text-align: center;
-  }
-  
-  .indicator li a{
-    display: inline-block;
-    color: white;
-    text-decoration: none;
-    background-color: #23a4c3;
-    width: 30px;
-    height: 30px;
-    font-size: 20px;
-    align-content: center;
-    border-radius: 100%;
-  }
-  .indicator li a:hover { background-color: #F4D63A; }
+margin: auto;
+width: 100%;
+padding: 20px;
+display: block;
+}
 
-/*10/11/2021*/
+ul, li {
+padding: 0;
+margin: 0;
+list-style: none;
+}
+img p{
+position: relative;
+}
+
+ul.sliderImg{
+position: relative;
+width: 100%;
+height: 500px;
+}
+
+ul.sliderImg li {
+position: absolute;
+left: 0px;
+top: 0px;
+opacity: 0;
+width: inherit;
+height: inherit;
+transition: opacity .5s;
+}
+
+ul.sliderImg li img{
+width: 90%;
+height: 500px;
+margin-left: 5%;
+/*object-fit: cover;*/
+}
+.txt{ 
+position: absolute;
+top: 450px; 
+left: 80px;
+background-color: rgba(190, 226, 190, 0.5);
+color: rgb(53, 50, 46);
+font-family:'Handlee', cursive;
+font-weight: bolder;
+font-size: 25px;
+}
+
+ul.sliderImg li:first-child {
+opacity: 1; /*Mostramos el primer <li>*/
+}
+ul.sliderImg li:target {
+opacity: 1; /*Mostramos el boton que pulsemos*/
+}
+.indicator{
+text-align: center;
+margin: 20px;
+}
+
+.indicator li{
+display: inline-block;
+text-align: center;
+}
+
+.indicator li a{
+display: inline-block;
+color: white;
+text-decoration: none;
+background-color: #23a4c3;
+width: 30px;
+height: 30px;
+font-size: 20px;
+align-content: center;
+border-radius: 100%;
+}
+.indicator li a:hover { 
+background-color: #F4D63A; 
+color: #00133A;
+}
+
 .containerFatherMain{
-    
-    display: flex;
-    gap: 2rem; /*separador de columnas*/
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    border-radius: 4px; 
+
+display: flex;
+gap: 2rem; /*separador de columnas*/
+justify-content: center;
+align-items: center;
+text-align: center;
+border-radius: 4px; 
 }
 
 .sectionImgWord{
-    max-width: 40em;
-   
+max-width: 40em;
 }
 
 .betterWorld{
-    max-width:50rem;
-    max-height: 20.5rem;
-    display: flex;/* lo maximo que tiene disponible paraagrandar la imagen*/
-   /* lo maximo que tiene disponible paraagrandar la imagen*/
-   
+max-width:50rem;
+max-height: 20.5rem;
+display: flex;/* lo maximo que tiene disponible paraagrandar la imagen*/
+/* lo maximo que tiene disponible paraagrandar la imagen*/
 }
-/*10/11/2021*/
-.tableMedals{
-    margin-left: 30px;
-    background-image: url(./imagenes/mascotas.png.jpeg);
-    background-size: 100% 100%; 
+.mascotaTabla{
+    background: url(./imagenes/mascotaTabla.png);
+    background-size: 100% 100%;
+    margin-top: 80px;
+    margin-left: 90px;
+    margin-right: 80px;
+}
+.smallTable{
+position: relative;
+top: -20px; 
+margin-left: 590px;
+margin-right: -300px;
+
+width: 20rem;
+}
+#bigTable{
+    display: none;
+    bottom: 20px;
+    /* background-image: url(./imagenes/mascotas.png.jpeg);
+    background-size: 100% 100%;
+    opacity: 0.3; */
+}
+.tableMedalsModal{
     border: none;
+    width: 30rem;
+    height: 40rem; /*Altura de la tabla*/
     border-collapse: collapse; /*Para que las celdas se unan*/ 
     font-family:'Handlee', cursive;
-  }
-  caption{ /*Esto es la leyenda (Titulo)*/
-      font-size: 30px;
-      font-family:'Handlee', cursive;
-      color: #325665;
-  }
+    text-align: center;
+    width: 80%;
+    margin-left: 8rem;
+    margin-bottom: 1rem;
+    font-size: 1.6rem;
+} 
+.divOfFeatureAthletes{
+display: flex;
+/*flex-direction: column;*/
+}
+.todoMain{
+    display: flex;
+}
 
-  .tableMedals th{ /*Esto es el encabezado de la tabla*/
-      font-size: 20px;
-      padding: 1px 10px; 
-      border-bottom:1px solid #23a4c3;
-      color: #325665;
-      background-color: rgba(255,255,255,0.6 ); /* En este caso sería color de fondo blanco con 85% de transparencia.*/
-  }
-  .tableMedals td{ /*Esto es cada celda*/
-    font-size: 15px;
-    color:#050505;
-    padding: 1px 10px;
-    border-bottom:1px solid #23a4c3;
-    font-weight: 550;
-    background-color: rgba(255,255,255,0.6); /* En este caso sería color de fondo blanco con 85% de transparencia.*/
-  }
+.tableMedals, .buttonMedals{
+    width: 55%;
+    margin-top: 1rem; /*Esto se aplico al boton*/
+    margin-left: -30rem;
+    margin-right: 5rem;
+    }
+.tableMedals{
+border: none;
+width: 30rem;
+height: 40rem; /*Altura de la tabla*/
+border-collapse: collapse; /*Para que las celdas se unan*/ 
+font-family:'Handlee', cursive;
+}
+caption, .titleFeaturedAthletes{ /*Esto es la leyenda (Titulo)*/
+font-size: 30px;
+font-family:'Handlee', cursive;
+color: #325665;
+}
 
+.tableMedals th{ /*Esto es el encabezado de la tabla*/
+font-size: 20px;
+padding: 1px 10px; 
+border-bottom:1px solid #23a4c3;
+color: #325665;
+background-color: rgba(255,255,255,0.6 ); /* En este caso sería color de fondo blanco con 85% de transparencia.*/
+}
+.tableMedals td{ /*Esto es cada celda*/
+font-size: 20px;
+color:#050505;
+padding: 1px 10px;
+border: 1px solid #23a4c3;
+font-weight: 850;
+background-color: rgba(255,255,255,0.6); /* En este caso sería color de fondo blanco con 85% de transparencia.*/
+}
+.buttonMedals{
+width: 150px;
+height: 30px;
+margin-left: -20rem;
+margin-right: 100rem ;
+background: #4E99CF;
+border-radius: 20px;
+font-family:'Handlee', cursive;
+font-size: 20px;
+color:#f8f7f7;
+cursor: pointer;
+}
+
+button:hover { 
+background-color: #F4D63A; 
+color: #00133A;}
+
+.buttonModal{
+position: absolute;
+margin-left: 75rem;
+border-radius: 100px;
+width: 40px;
+height: 40px;
+background: #4E99CF;
+font-family:'Handlee', cursive;
+font-size: 20px;
+color:#f8f7f7;
+cursor: pointer;
+}
 
 .filterContainer {
-    background-color: #00133A;
-    /*margin: auto;*/
-    height: 6vw;
-    display: flex;
-    justify-content:space-between;
+background-color: #00133A;
+/*margin: auto;*/
+height: 6vw;
+display: flex;
+justify-content:space-between;
 }
 
 .filterTeamAndSport {
-    font-size: 1em;;
-    padding: 1.5vw;
-    width: 45vh;
-    height: 15vw;
-    
+font-size: 1em;;
+padding: 1.5vw;
+width: 45vh;
+height: 15vw;
 }
 
 
 #displayOrder {
-    display: none;
+display: none;
 }
 
 label {
-    font-family:'Handlee', cursive;
-    justify-self: center;
-    /*font-size: 15px;*/
-    /*width: 200px;*/
-    /*margin-right: 10px;*/
-    color: #f8f7f7;
-    font-weight: bold;
-   
+font-family:'Handlee', cursive;
+justify-self: center;
+/*font-size: 15px;*/
+/*width: 200px;*/
+/*margin-right: 10px;*/
+color: #f8f7f7;
+font-weight: bold;
 }
 
 select{
-    background-color:#23a3c3f1;
-    border-radius: 50px;
-    justify-self:center;
-    font-size: 15px;
-    height: 1.5vw;
-    width: 15vw;
+background-color:#23a3c3f1;
+border-radius: 50px;
+justify-self:center;
+font-size: 15px;
+height: 1.5vw;
+width: 15vw;
 }
 select:hover {
-    background-color:#F4D63A;
-  }
+background-color:#F4D63A;
+}
 /*----------*/
 
 .error2{
-    display: none;
-    flex-direction: column;
-    align-content: center;
+display: none;
+flex-direction: column;
+align-content: center;
 }
 
 .h1Error{
-    text-align: center;
-    font-family: 'Handlee', cursive;
-    font-weight: bold;
-    color: #00133A;
- 
+text-align: center;
+font-family: 'Handlee', cursive;
+font-weight: bold;
+color: #00133A;
 }
 
 .imgMsjError{
-    max-width: 25%;
-    max-height: 25%;
-    align-self: center;
+max-width: 25%;
+max-height: 25%;
+align-self: center;
 }
 /*----------*/
+.featureAthletes{
+width: 51%;
+}
+.f-a{
+    width: 20rem;
+    padding: 1rem;
+}
+.photoAthletes{
+    float: left;
+    border-radius: 50%;
+    width: 8rem;
+    height: 8rem;
+}
+.medalFeatureAthletes{
+    position: relative;
+    margin-top: -3.6rem;
+    margin-right: -0.7rem;
+    letter-spacing: 0.8rem;
+}
+.imageMedal img{
+top: 4rem;
+width: 8rem;
+/*background-image: url(./imagenes/medallas.png);
+background-repeat: no-repeat;*/
+background-size: 70% 70%;
+}
 .nameAthlete{
-    text-align: center;
-    font-size: 19px;
-    font-family:'Handlee', cursive;
-    font-weight: bold;
-    color:#00133A;
-    /*width: min-content;*/
-    width: 20vw;
-    border-radius: 20px;
-    border-color: #325665;
-    background-color:#f8f7f7;
-    padding: 2px 5px;
-    white-space: nowrap;
-    overflow: hidden;
-    margin: 1rem;
+text-align: center;
+font-size: 15px;
+font-family:'Handlee', cursive;
+font-weight: bold;
+color:#00133A;
+width: min-content;
+width: 20vw;
+padding: 2px 5px;
+white-space: normal; /*ajusta el texto*/
+margin: 1rem;
 }
 
 .sportsContainer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    background:rgb(50 86 101 / 39%);
-    background-image: url(./imagenes/fondo2plantilla.png);
-    box-sizing: border-box;
-    background-repeat: round;
-    background-size: contain;
-    /*background-position: center;*/
-    border-radius: 20px;
-    height: fit-content;
-    width: fit-content;
-    margin: 1rem;/*organizacion de la plantilla, quedan todos derechos.*/
-    box-sizing: border-box;
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+background:rgb(50 86 101 / 39%);
+background-image: url(./imagenes/fondo2plantilla.png);
+box-sizing: border-box;
+background-repeat: round;
+background-size: contain;
+/*background-position: center;*/
+border-radius: 20px;
+height: fit-content;
+width: fit-content;
+margin: 1rem;/*organizacion de la plantilla, quedan todos derechos.*/
+box-sizing: border-box;
 }
 
 .infoAthlete{
-    display: flex;
-    justify-content: center;
+display: flex;
+justify-content: center;
 }
 
 p{
-    font-family:'Handlee', cursive;
-    font-weight: bold;/*grueso de letras*/
+font-family:'Handlee', cursive;
+font-weight: bold;/*grueso de letras*/
 
 }
 .classAthlete {
-    border-radius: 15px;
-    max-width: 100px;
-    justify-content: center;
+border-radius: 15px;
+max-width: 100px;
+justify-content: center;
 }
 
 .boxImgAthlete {
-    align-self: center;
-    justify-content: center;
-    margin: 0.5em;
-    /*border-radius: 20px;*/
+align-self: center;
+justify-content: center;
+margin: 0.5em;
+/*border-radius: 20px;*/
 }
 
 .tableAthletes {
-    justify-content: center;
-    min-width: max-content;
-    max-width: 100%;
-    max-height: 100%;
-    margin: .5em;
-    background-color: #eeeeee8f;
-    border-radius: 10px;
-
+justify-content: center;
+min-width: max-content;
+max-width: 100%;
+max-height: 100%;
+margin: .5em;
+background-color: #eeeeee8f;
+border-radius: 10px;
 }
 
 .grid {
-    display: flex;
-    flex-flow: wrap;
-    gap: 1rem 1rem;
-    justify-content: center;
+display: flex;
+flex-flow: wrap;
+gap: 1rem 1rem;
+justify-content: center;
 }
 
 
 footer{
-    display: flex;
-    background-color: #00133A;
-    color: white;
-    font-family: 'Handlee', cursive;
-    height: 270px;
-    width: 100%;
-    justify-content: space-around;
-    padding: 20px;
+display: flex;
+background-color: #00133A;
+color: white;
+font-family: 'Handlee', cursive;
+height: 270px;
+width: 100%;
+justify-content: space-around;
+padding: 20px;
 }
 .socialMedia{
-    display: flex;
-    width: 250px;
-    flex-direction: column;
-    align-items: flex-start;
-    margin-left: 80px;
+display: flex;
+width: 250px;
+flex-direction: column;
+align-items: flex-start;
+margin-left: 80px;
 }
 .socialMedia p{
-    font-weight: bold;
-    font-size: 18px;
-    width: 170px;
-    text-align: center;
-    padding: 8px;
+font-weight: bold;
+font-size: 18px;
+width: 170px;
+text-align: center;
+padding: 8px;
 }
 .fity{
-    border-radius: 50%;
-    width: 175px;  
-    flex-direction: row;
-    cursor: pointer;
+border-radius: 50%;
+width: 175px;  
+flex-direction: row;
+cursor: pointer;
 }
 .facebook,
 .instagram,
 .twitter,
 .youtube
 {    
-   height: 40px;
+height: 40px;
 }
 .logoFoo{
-    display: flex;
-    height: 160px;
-    align-items: center;
+display: flex;
+height: 160px;
+align-items: center;
 }
 .footerLogo{
-    width: 100px;
-    height: 140px;
+width: 100px;
+height: 140px;
 }
 .logoFoo p{
-    text-align: justify;
-    width: 330px;
-    padding-left: 15px;
-    height: 90px;
+text-align: justify;
+width: 330px;
+padding-left: 15px;
+height: 90px;
 }
 .copyright{ 
-    display: flex;
-    flex-direction: column;
-    height: 180px;
-    justify-content: flex-end;
+display: flex;
+flex-direction: column;
+height: 180px;
+justify-content: flex-end;
 }
 .copyright p{
-    width: 280px;
-    text-align: center;
-    font-size: 12px;
+width: 280px;
+text-align: center;
+font-size: 12px;
 }
 
+/*Boton volver Arriba*/
+.btnArriba{
+    position: fixed; /*posicion fija*/
+    width: 4.5rem;
+    height: 3rem;
+    bottom: 6rem;
+    right: -10rem;
+    transition: all 1s;
+}
+/*USCADOR
