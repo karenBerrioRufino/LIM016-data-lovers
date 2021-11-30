@@ -1,6 +1,10 @@
 import datos from "./data/athletes/athletes.js";
+<<<<<<< HEAD
+import { genderAll, computeDataTwo, functionAll, sortData, sortByAge, sortByName, allCountries, allSport, nameAth } from "./data.js";
+=======
 
 import { genderAll,filterByTeamFunc,filterBySportFunc,filterByGender, computeDataTwo, functionAll, sortData, sortByAge, sortByName, allCountries, allSport } from "./data.js";
+>>>>>>> a90b65fd34e28e47168f9b14e69c2ef7c7dbe060
 
 const arrayAthletes = datos.athletes;//aqui guardo la data de todos los atletas
 const arrayCountries = sortData(Array.from(allCountries(arrayAthletes))).reverse();//array de paises
@@ -9,17 +13,52 @@ const team = document.getElementById('team');//select de paises
 const sport = document.getElementById('sport');//select de dorpote
 const orderBySelect = document.getElementById('orderBySelect');//select para ordenar
 const gender = document.getElementById('gender');
+//codigo para crear el buscador
+//let newArrayAthletes = Array.from(nameAth(arrayAthletes));
+let newArrayAthletes = Array.from(arrayAthletes);
+let search = document.querySelector('.search');
+let lista = document.querySelector('.lista');
+let searching = () =>{ 
+  lista.innerHTML =""; //cada vez que se ejecute 'searching' comenzara con un string vacio y no entrará al for ni al if
+  let texto = search.value.toLowerCase();
+  for (const athletes of newArrayAthletes) {
+    let name= athletes.name.toLowerCase(); //athletes se ubica en el primer objeto y toma la propiedad que le indica
+  //console.log(name);
+    if (name.indexOf(texto) > -1) { //busca 'texto' dentro de 'name', sino encuentra el texto pinta -1   
+
+      lista.innerHTML+= `<li id="li" value="${athletes.name}">${athletes.name}</li>` //pintar el resultado
+    }
+  }
+  if (lista.innerHTML === "") {
+    lista.innerHTML+= `<li>Atleta no encontrado</li>`
+  }
+}
+search.addEventListener('keyup', searching);
+
+
+
+let li = document.getElementById("li").value;
+li.addEventListener('click', function(){
+  for (const athletes of newArrayAthletes) {
+    let nameLi= "";
+    if (nameLi == athletes.name) {
+      insertHtmlAtheles(generateAthleteTemplate(newArrayAthletes)); 
+    }
+  }
+  lista.style.display = "none";
+  
+});
 
 
 
 // codigo para crear las opciones de genero
+
 let containerGender = document.querySelector('.containerGender');//form gender
 let g = Array.from(genderAll(arrayAthletes));
 for (let x = 0; x < g.length; x++) {
   let optionGender = document.createElement('option');
   optionGender.value = g[x];
   optionGender.innerHTML = g[x];
-
   containerGender.gender.appendChild(optionGender); 
   }
 
@@ -152,25 +191,25 @@ orderBySelect.addEventListener('change', (event) => {
     insertHtmlAtheles(sortByNameReverse.map(generateAthleteTemplate).join(''));
   }
 });
-//* /FUNCION DEL BUSCADOR
-//let newArrayAthletes = Array.from(arrayAthletes);
-//let search = document.querySelector('.search');
-//let lista = document.querySelector('.lista');
-//let searching = () =>{ 
-  //lista.innerHTML =""; //cada vez que se ejecute 'searching' comenzara con un string vacio y no entrará al for ni al if
-  //let texto = search.value.toLowerCase();
-  //for (const athletes of newArrayAthletes) {
-    //let name= athletes.name.toLowerCase(); //athletes se ubica en el primer objeto y toma la propiedad que le indica
+//FUNCION DEL BUSCADOR
+let newArrayAthletes = Array.from(arrayAthletes);
+let search = document.querySelector('.search');
+let lista = document.querySelector('.lista');
+let searching = () =>{ 
+  lista.innerHTML =""; //cada vez que se ejecute 'searching' comenzara con un string vacio y no entrará al for ni al if
+  let texto = search.value.toLowerCase();
+  for (const athletes of newArrayAthletes) {
+    let name= athletes.name.toLowerCase(); //athletes se ubica en el primer objeto y toma la propiedad que le indica
   //console.log(name);
-    //if (name.indexOf(texto) > -1) { //busca 'texto' dentro de 'name', sino encuentra el texto pinta -1   
-      // lista.innerHTML+= `<li id="li" value="${athletes.name}">${athletes.name}</li>` //pintar el resultado
-    //}
-  //}
-  //if (lista.innerHTML === "") {
-    //lista.innerHTML+= `<li>Producto no encontrado</li>`
-  //}
-//}
-//search.addEventListener('keyup', searching); 
+  if (name.indexOf(texto) > -1) { //busca 'texto' dentro de 'name', sino encuentra el texto pinta -1   
+       lista.innerHTML+= `<li id="li" value="${athletes.name}">${athletes.name}</li>` //pintar el resultado
+    }
+  }
+  if (lista.innerHTML === "") {
+    lista.innerHTML+= `<li>Producto no encontrado</li>`
+  }
+}
+search.addEventListener('keyup', searching); 
 
 //FUNCION PARA CREAR TABLA DE RANKING DE PAISES 
 let tableMedals = computeData(datos.athletes); //Meto mi funcion en una variable 

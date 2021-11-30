@@ -51,6 +51,13 @@ const filterByGender = (genderSelected) => {
   return (athlete) => athlete.gender == genderSelected;
 
 }
+const nameAth = (n) =>{
+  const newNameAth = n.map(name2 =>{
+    return name2.name;
+  });
+  return newNameAth;
+  
+}
 /*
  Este funcion recive 3 parametros, el primero es un Array de Athletas
  El segundo parametro es una funcion de comparacion que va a utilizar el metodo sort, de Array para ordernar.
@@ -108,6 +115,7 @@ const computeData = (datos) => {
     }
   }
 
+
   //Aqui vamos a contar todas las medallas 
 
   for (let i = 0; i < datos.length; i++) {
@@ -125,8 +133,9 @@ const computeData = (datos) => {
     }
     country.total = country.total + 1;
     mapCountry.set(element.team, country) ///Aqui reemplazamos con el nuevo objeto 
- nai
+ 
     //console.log(mapCountry);
+
   }
 
   //transformando el Map en un array de noc y total 
@@ -203,6 +212,7 @@ export {
   computeData,
   computeDataTwo,
   genderAll,
+  nameAth,
   filterByTeamFunc,
   filterBySportFunc,
   filterByGender,
