@@ -77,20 +77,20 @@ const sortByAge = (athlete1, athlete2) => {//ordeno por edad
   return 0;
 };
 
-const computeDataTwo = (datos) => {
+const computeData = (datos) => {
   const mapCountry = new Map();
   //Aqui inicializamos nuetro mapa de paises con todas las medallas en cero 
-  for (let index = 0; index < datos.length; index++) {
-    const element = datos[index];
-    if (!mapCountry.has(element.team)) {
+  for (let i = 0; i < datos.length; i++) {
+    const element = datos[i];
+    if (!mapCountry.has(element.team)) { //retorna un booleano indicando si el elemento especificado existe en el objeto Set o no.
       const initValue = { silver: 0, gold: 0, bronze: 0, total: 0 }
       mapCountry.set(element.team, initValue); //creando por primera vez el set dentro del Map 
     }
   }
 
   //Aqui vamos a contar todas las medallas 
-  for (let index = 0; index < datos.length; index++) {
-    const element = datos[index];
+  for (let i = 0; i < datos.length; i++) {
+    const element = datos[i];
     const country = mapCountry.get(element.team);
     if (element.medal === "Gold") {
       country.gold = country.gold + 1;
@@ -103,6 +103,7 @@ const computeDataTwo = (datos) => {
     }
     country.total = country.total + 1;
     mapCountry.set(element.team, country) ///Aqui reemplazamos con el nuevo objeto 
+    //console.log(mapCountry);
   }
 
   //transformando el Map en un array de noc y total 
@@ -121,9 +122,52 @@ const computeDataTwo = (datos) => {
       return -1;
     } return 0;
   });
+};
+
+const computeDataTwo = (datos) =>{
+  const mapAthletes = new Map();
+  for (let j = 0; j < datos.length; j++){
+    const element = datos[j];
+    if(!mapAthletes.has(element.name)){ //probará su presencia en el objeto Set
+      const initValueAthletes = {gold: 0, bronze: 0, silver:0, total: 0}
+      mapAthletes.set(element.name + " " + element.team, initValueAthletes) //El key es element.name y el value es todo lo q esta en la var initValueAthletes
+      //console.log(mapAthletes);
+    } 
+  }
+  //Aqui vamos a contar todas las medallas 
+  for (let j = 0; j < datos.length; j++) {
+    const element = datos[j];
+    const athletes = mapAthletes.get(element.name + " " + element.team);
+    if (element.medal === "Gold") {
+      athletes.gold = athletes.gold + 1;
+    }
+    if (element.medal === "Bronze") {
+      athletes.bronze = athletes.bronze + 1;
+    }
+    if (element.medal === "Silver") {
+      athletes.silver = athletes.silver + 1;
+    }
+    athletes.total = athletes.total + 1;
+    mapAthletes.set(element.name + " " + element.team, athletes) ///Aqui reemplazamos con el nuevo objeto 
+    //console.log(mapAthletes);
+  }
+  //transformando el Map en un array de atletas, pais y medallas  
+  const arrayAthletes = [];
+  mapAthletes.forEach((value, key) => {
+    const totalMedalByAthletes = { name: key, gold: value.gold, silver: value.silver, bronce: value.bronze, total: value.total };
+    arrayAthletes.push(totalMedalByAthletes);
+    //console.log(arrayAthletes);
+  })
+  //Ordenando de mayor a menor el total de medallas por atletas 
+  return arrayAthletes.sort(function (prev, next) {
+    if (prev.total < next.total) {
+      return 1;
+    }
+    if (prev.total > next.total) {
+      return -1;
+    } return 0;
+  });
 }
-
-
 
 export {
   functionAll,
@@ -133,6 +177,7 @@ export {
   sortData,
   sortByName,
   sortByAge,
+  computeData,
   computeDataTwo,
   genderAll
 }

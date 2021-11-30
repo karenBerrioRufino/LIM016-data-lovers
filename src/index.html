@@ -9,12 +9,11 @@
 </head>
 
 <body>
-  <header>
-    <nav class="containerHeader">
-      <p>Um mundo novo</p>
-      <img src="./imagenes/headerLogo.png" alt="Header Logo">
-    </nav>
-  </header>
+  <nav class="containerHeader">
+    <img class="imgHeader" src="./imagenes/header-logo-1.PNG" alt="Header Logo">
+    <p>Um mundo novo</p>
+  </nav>
+  </header><br><br>
 
   <!--CARRUSEL DE FOTOS-->
   <div class="carouselContainer" id="carousel">
@@ -96,45 +95,80 @@
     <!----plantilla de los atletas-->
   </section>
 
-
   <main>
 
+
     <section id="containerFatherMain" class="containerFatherMain">
-      <!--- <h1>aqui va el medallero</h1>--->
-      <div>
-        <img class="mascotaTabla" src="./imagenes/mascotaTabla.png" alt="">
-        <table class="tableMedals" id="tableMedals" border="1">
-          <caption>🥇🥈🥉
-            <br>Tabla de Medallas
-          </caption>
-          <tr>
-            <th>Equipos</th>
-            <th>Oro</th>
-            <th>Plata</th>
-            <th>Bronce</th>
-            <th>Total</th>
-          </tr>
-        </table>
-        <button class="buttonMedals">Ver más</button>
+      <!----Buscador-->
+      <!-- <div class="containerSearch">
+        <input type="text" id="search" class="search" placeholder="Encuentra a un atleta" >
+        <i class="fas fa-search" id="i"></i>
       </div>
-      <div class="Modal">
-        <table class="tableMedalsModal" id="tableMedalsModal" border="1">
-          <button title="cerrar" class="buttonModal">X</button>
-          <caption>🥇🥈🥉
-            <br>Tabla de Medallas
-          </caption>
-          <tr>
-            <th>Equipos</th>
-            <th>Oro</th>
-            <th>Plata</th>
-            <th>Bronce</th>
-            <th>Total</th>
-          </tr>
-        </table>
+        <ul id="lista" class="lista">  </ul>   -->
+      <div class="todoMain">
+        <div id="smallTable" class="smallTable">
+          <table class="tableMedals" id="tableMedals" border="1">
+            <caption>🥇🥈🥉
+              <br>Tabla de Medallas
+            </caption>
+            <tr>
+              <th>Equipos</th>
+              <th>Oro</th>
+              <th>Plata</th>
+              <th>Bronce</th>
+              <th>Total</th>
+            </tr>
+          </table>
+          <button class="buttonMedals" id="buttonMedals">Ver más</button>
+        </div>
+        <div class="featureAthletes">
+          <p class="titleFeaturedAthletes"> Atletas Destacados</p>
+          <section class="divOfFeatureAthletes">
+            <div class="f-a" id="one"><img class="photoAthletes" src="./imagenes/michael Phelps.jpg" alt=""></div>
+            <div class="f-a" id="two"><img class="photoAthletes" src="./imagenes/Simone Arianne Biles.jpeg" alt="">
+            </div><br>
+          </section>
+          <section class="divOfFeatureAthletes">
+            <div class="f-a" id="three"><img class="photoAthletes" src="./imagenes/Kathleen Genevieve.jpg" alt=""></div>
+            <div class="f-a" id="four"><img class="photoAthletes" src="./imagenes/Nathan Ghar-Jun Adrian.jpg" alt="">
+            </div><br>
+          </section>
+          <section class="divOfFeatureAthletes">
+            <div class="f-a" id="five"><img class="photoAthletes" src="./imagenes/Maya-DiRado.jpg" alt=""></div>
+            <div class="f-a" id="six"><img class="photoAthletes" src="./imagenes/Katinka Hossz.jpg" alt=""></div><br>
+          </section>
+          <section class="divOfFeatureAthletes">
+            <div class="f-a" id="seven"><img class="photoAthletes" src="./imagenes/Simone Ashley Manuel.jpg" alt="">
+            </div>
+            <div class="f-a" id="eight"><img class="photoAthletes" src="./imagenes/Emma McKeon.jpg" alt=""></div>
+          </section>
+          <section class="divOfFeatureAthletes">
+            <div class="f-a" id="nine"><img class="photoAthletes" src="./imagenes/Penelope Oleksiak.jpg" alt=""></div>
+            <div class="f-a" id="ten"><img class="photoAthletes" src="./imagenes/Denis Mikhaylovich Ablyazin.jpg"
+                alt=""></div>
+          </section>
+        </div>
       </div>
     </section>
+    <div id="bigTable">
+      <table class="tableMedalsModal" id="tableMedalsModal" border="1">
+        <button title="cerrar" id="close" class="buttonModal">X</button>
+        <caption>🥇🥈🥉
+          <br>Tabla de Medallas
+        </caption>
+        <tr>
+          <th>Equipos</th>
+          <th>Oro</th>
+          <th>Plata</th>
+          <th>Bronce</th>
+          <th>Total</th>
+        </tr>
+      </table>
+    </div>
+
     <!--Boton de Volver Arriba-->
-    <a href="#principal"><img class="btnArriba" id="btnArriba" title="Volver arriba" src="./imagenes/btnArriba.png" alt=""></a>
+    <a href="#principal"><img class="btnArriba" id="btnArriba" title="Volver arriba" src="./imagenes/btnArriba.png"
+        alt=""></a>
   </main>
   <footer>
     <div class="logoFoo">
