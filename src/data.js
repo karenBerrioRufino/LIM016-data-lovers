@@ -32,6 +32,24 @@ const genderAll = (array) => {
     return gen2.gender;
   });
   return new Set(newArrGender);
+
+}
+
+
+//declaro estas dos funciones afuera porque necesito usarlas en los dos addEventListener
+const filterByTeamFunc = (teamSelected) => {/*funcion que me retorna una funcion los atletas de un pais 
+  que sean igual al valor del select */
+  return (athlete) => athlete.team == teamSelected;
+}
+
+const filterBySportFunc = (sportSelected) => {/*funcion que me retorna una funcion de atletas por deportes 
+  que sean igual al valor del select */
+  return (athlete) => athlete.sport == sportSelected;
+}
+
+const filterByGender = (genderSelected) => {
+  return (athlete) => athlete.gender == genderSelected;
+
 }
 /*
  Este funcion recive 3 parametros, el primero es un Array de Athletas
@@ -77,20 +95,24 @@ const sortByAge = (athlete1, athlete2) => {//ordeno por edad
   return 0;
 };
 
+
 const computeData = (datos) => {
   const mapCountry = new Map();
   //Aqui inicializamos nuetro mapa de paises con todas las medallas en cero 
   for (let i = 0; i < datos.length; i++) {
     const element = datos[i];
     if (!mapCountry.has(element.team)) { //retorna un booleano indicando si el elemento especificado existe en el objeto Set o no.
+
       const initValue = { silver: 0, gold: 0, bronze: 0, total: 0 }
       mapCountry.set(element.team, initValue); //creando por primera vez el set dentro del Map 
     }
   }
 
   //Aqui vamos a contar todas las medallas 
+
   for (let i = 0; i < datos.length; i++) {
     const element = datos[i];
+
     const country = mapCountry.get(element.team);
     if (element.medal === "Gold") {
       country.gold = country.gold + 1;
@@ -103,6 +125,7 @@ const computeData = (datos) => {
     }
     country.total = country.total + 1;
     mapCountry.set(element.team, country) ///Aqui reemplazamos con el nuevo objeto 
+ nai
     //console.log(mapCountry);
   }
 
@@ -179,5 +202,8 @@ export {
   sortByAge,
   computeData,
   computeDataTwo,
-  genderAll
+  genderAll,
+  filterByTeamFunc,
+  filterBySportFunc,
+  filterByGender,
 }
