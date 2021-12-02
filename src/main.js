@@ -163,25 +163,6 @@ orderBySelect.addEventListener('change', (event) => {
     insertHtmlAtheles(sortByNameReverse.map(generateAthleteTemplate).join(''));
   }
 });
-//* /FUNCION DEL BUSCADOR
-//let newArrayAthletes = Array.from(arrayAthletes);
-//let search = document.querySelector('.search');
-//let lista = document.querySelector('.lista');
-//let searching = () =>{ 
-  //lista.innerHTML =""; //cada vez que se ejecute 'searching' comenzara con un string vacio y no entrará al for ni al if
-  //let texto = search.value.toLowerCase();
-  //for (const athletes of newArrayAthletes) {
-    //let name= athletes.name.toLowerCase(); //athletes se ubica en el primer objeto y toma la propiedad que le indica
-  //console.log(name);
-    //if (name.indexOf(texto) > -1) { //busca 'texto' dentro de 'name', sino encuentra el texto pinta -1   
-      // lista.innerHTML+= `<li id="li" value="${athletes.name}">${athletes.name}</li>` //pintar el resultado
-    //}
-  //}
-  //if (lista.innerHTML === "") {
-    //lista.innerHTML+= `<li>Producto no encontrado</li>`
-  //}
-//}
-//search.addEventListener('keyup', searching); 
 
 //FUNCION PARA CREAR TABLA DE RANKING DE PAISES 
 let tableMedals = computeData(datos.athletes); //Meto mi funcion en una variable 
@@ -236,8 +217,6 @@ function reload (){
   }
   const buttonClose = document.getElementById("close"); //accedo a boton de cerrar
   buttonClose.addEventListener("click", reload); //Le indico al boton close que ejecute la funcion que refresca la pagina.  
-//Esta es la tabla que aparece en el modal 
-
 
 //FUNCION PARA LOS ATLETAS DESTACADOS
 let featuredAthletes = computeDataTwo(datos.athletes);
