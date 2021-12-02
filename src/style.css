@@ -6,7 +6,10 @@ padding: 0%;
 box-sizing: border-box;
 /*para mover el modelo de caja*/
 }
+html, body{
+    height:100%
 
+  }
 body {
 counter-reset: none;
 }
@@ -38,7 +41,7 @@ counter-reset: none;
     outline: none; 
     color: black;
     font-size: 20px;
-    float:inline-start;
+    
     line-height: 60px;
     transition: .3s;
     width: 0%;
@@ -52,20 +55,9 @@ counter-reset: none;
     color: white;
 }
 ::placeholder{ color: #ffffffc9;}
-.lista{
-    width: 50%;
-    background: rgb(255, 255, 255);
-    flex-direction: column;
-    z-index: 1;
-    font-family:'Handlee';
-    font-size: 20px;
-}
-li:hover{
-    background-color: #adc0e6;
-    cursor: pointer;
-}
 
-<<<<<<< HEAD
+
+
 @media screen and (min-width:480px){ /*CELULAR*/
     .containerSearch:hover > .search {
         width: 190px;
@@ -446,7 +438,6 @@ flex-flow: wrap;
 gap: 1rem 1rem;
 justify-content: center;
 }
-
 
 footer{
 display: flex;

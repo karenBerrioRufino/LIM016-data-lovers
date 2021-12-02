@@ -35,7 +35,6 @@ const genderAll = (array) => {
 
 }
 
-
 //declaro estas dos funciones afuera porque necesito usarlas en los dos addEventListener
 const filterByTeamFunc = (teamSelected) => {/*funcion que me retorna una funcion los atletas de un pais 
   que sean igual al valor del select */
