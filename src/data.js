@@ -1,9 +1,7 @@
-
 //funcion para filtrar
 const functionAll = (array, condicion) => {
   return array.filter(condicion);
 };
-
 
 /* funcion para obtener un arreglo de solo paises, deportes y genero*/
 const allCountries = (countries) => {
@@ -36,7 +34,6 @@ const genderAll = (array) => {
 }
 
 
-//declaro estas dos funciones afuera porque necesito usarlas en los dos addEventListener
 const filterByTeamFunc = (teamSelected) => {/*funcion que me retorna una funcion los atletas de un pais 
   que sean igual al valor del select */
   return (athlete) => athlete.team == teamSelected;
@@ -125,7 +122,7 @@ const computeData = (datos) => {
     }
     country.total = country.total + 1;
     mapCountry.set(element.team, country) ///Aqui reemplazamos con el nuevo objeto 
- nai
+
     //console.log(mapCountry);
   }
 
@@ -147,15 +144,15 @@ const computeData = (datos) => {
   });
 };
 
-const computeDataTwo = (datos) =>{
+const computeDataTwo = (datos) => {
   const mapAthletes = new Map();
-  for (let j = 0; j < datos.length; j++){
+  for (let j = 0; j < datos.length; j++) {
     const element = datos[j];
-    if(!mapAthletes.has(element.name)){ //probará su presencia en el objeto Set
-      const initValueAthletes = {gold: 0, bronze: 0, silver:0, total: 0}
+    if (!mapAthletes.has(element.name)) { //probará su presencia en el objeto Set
+      const initValueAthletes = { gold: 0, bronze: 0, silver: 0, total: 0 }
       mapAthletes.set(element.name + " " + element.team, initValueAthletes) //El key es element.name y el value es todo lo q esta en la var initValueAthletes
       //console.log(mapAthletes);
-    } 
+    }
   }
   //Aqui vamos a contar todas las medallas 
   for (let j = 0; j < datos.length; j++) {
@@ -191,7 +188,10 @@ const computeDataTwo = (datos) =>{
     } return 0;
   });
 }
-
+//FUNCION QUE REFRESCA LA PAG 
+function reload() {
+  location.reload();
+}
 export {
   functionAll,
   allCountries,
@@ -206,4 +206,5 @@ export {
   filterByTeamFunc,
   filterBySportFunc,
   filterByGender,
+  reload,
 }
