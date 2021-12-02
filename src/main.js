@@ -1,5 +1,11 @@
 import datos from "./data/athletes/athletes.js";
-import { genderAll, computeData,computeDataTwo, functionAll, sortData, sortByAge, sortByName, allCountries, allSport } from "./data.js";
+import {
+  reload, computeData, genderAll,
+  filterByTeamFunc, filterBySportFunc,
+  filterByGender, computeDataTwo,
+  functionAll, sortData, sortByAge, sortByName,
+  allCountries, allSport
+} from "./data.js";
 
 const arrayAthletes = datos.athletes;//aqui guardo la data de todos los atletas
 const arrayCountries = sortData(Array.from(allCountries(arrayAthletes))).reverse();//array de paises
@@ -8,41 +14,49 @@ const team = document.getElementById('team');//select de paises
 const sport = document.getElementById('sport');//select de dorpote
 const orderBySelect = document.getElementById('orderBySelect');//select para ordenar
 const gender = document.getElementById('gender');
+const header = document.querySelector('.imgHeader');
+const containerGender = document.querySelector('.containerGender');//form gender
+const tableRankingTeam = document.getElementById("tableMedals"); //accedo a la tabla en el html
+const modalTable = document.getElementById("tableMedalsModal");
+const button = document.getElementById("buttonMedals"); //accedo al boton de ver mas 
 
-
+//refrescado de la pagina dando click al header
+header.addEventListener('click', reload);
 
 // codigo para crear las opciones de genero
-let containerGender = document.querySelector('.containerGender');//form gender
 let g = Array.from(genderAll(arrayAthletes));
 for (let x = 0; x < g.length; x++) {
   let optionGender = document.createElement('option');
   optionGender.value = g[x];
   optionGender.innerHTML = g[x];
+
   containerGender.gender.appendChild(optionGender);
 }
-// una funcion  que retorna con la plantilla de un solo atleta que es un string (es un html)
+
 const generateAthleteTemplate = (athlete) => {
 
   const athletegender = athlete.gender === "F" ? "./imagenes/femolimpi.PNG" : "./imagenes/atletasmasculinos.jpg"
   return `<article class="sportsContainer">
-
-    <h1 class="nameAthlete">${athlete.name}</h1>
-    <section class="infoAthlete">
-      <figure class="boxImgAthlete">
-          <img class="classAthlete" src= ${athletegender}>
-      </figure>
-      <section class="tableAthletes">
-            <p> Genero: ${athlete.gender}</p>
-            <p> Altura: ${athlete.height}</p>
-            <p> Deporte: ${athlete.sport}</p>
-            <p> Peso: ${athlete.weight}</p>
-            <p> Pais: ${athlete.team}</p>
-            <p> Edad: ${athlete.age}</p>
-            <p> Medalla: ${athlete.medal}</p>     
-      </section>
-    </section>  
-  </article>`
+  
+      <h1 class="nameAthlete">${athlete.name}</h1>
+      <section class="infoAthlete">
+        <figure class="boxImgAthlete">
+            <img class="classAthlete" src= ${athletegender}>
+        </figure>
+        <section class="tableAthletes">
+              <p> Genero: ${athlete.gender}</p>
+              <p> Altura: ${athlete.height}</p>
+              <p> Deporte: ${athlete.sport}</p>
+              <p> Peso: ${athlete.weight}</p>
+              <p> Pais: ${athlete.team}</p>
+              <p> Edad: ${athlete.age}</p>
+              <p> Medalla: ${athlete.medal}</p>     
+        </section>
+      </section>  
+    </article>`
 }
+
+
 // funcion que retorna plantilla de  optiones de los filtros
 const generateOptionTemplate = (arrayF) => {
 
@@ -72,28 +86,12 @@ insertHtmArray(team, htmlCountrie);
 let htmlSport = arraySport.map(generateOptionTemplate).join("");
 insertHtmArray(sport, htmlSport);
 
-//declaro estas dos funciones afuera porque necesito usarlas en los dos addEventListener
-const filterByTeamFunc = (teamSelected) => {/*funcion que me retorna una funcion los atletas de un pais 
-  que sean igual al valor del select */
-  return (athlete) => athlete.team == teamSelected;
-}
-
-const filterBySportFunc = (sportSelected) => {/*funcion que me retorna una funcion de atletas por deportes 
-  que sean igual al valor del select */
-  return (athlete) => athlete.sport == sportSelected;
-}
-
-const filterByGender = (genderSelected) => {
-  return (athlete) => athlete.gender == genderSelected;
-}
 
 let filtersToSort = [];/*esta varieble la utilizo para guardar todos los filtros realizados y 
 utilizarlos para ordenar.*/
 
 //funcion que trabaja con todos los filtros.
 const functionFilterGrouping = () => {
-
-
   const sportSelected = sport.value;//*guardo el valor(la accion del usuario)
   const teamSelected = team.value;//*guardo el valor(la accion del usuario)
   const genderSelected = gender.value;
@@ -134,12 +132,9 @@ const functionFilterGrouping = () => {
   }
 
 };
-
-
 team.addEventListener('change', functionFilterGrouping);
 sport.addEventListener('change', functionFilterGrouping);
 gender.addEventListener('change', functionFilterGrouping);
-
 
 //orderBySelect es donde se encuentra el select de mis opciones para ordenar.
 orderBySelect.addEventListener('change', (event) => {
@@ -166,77 +161,75 @@ orderBySelect.addEventListener('change', (event) => {
 
 //FUNCION PARA CREAR TABLA DE RANKING DE PAISES 
 let tableMedals = computeData(datos.athletes); //Meto mi funcion en una variable 
- //console.log(tableMedals);
-let tableRankingTeam = document.getElementById("tableMedals"); //accedo a la tabla en el html
-let modalTable = document.getElementById("tableMedalsModal"); 
 
-function topOfMedals (element, array){
-let tableBody = document.createElement("tbody"); //accedo a crear el cuerpo de la tabla,contiene a un bloque de filas ( tr )
+function topOfMedals(element, array) {
+  let tableBody = document.createElement("tbody"); //accedo a crear el cuerpo de la tabla,contiene a un bloque de filas ( tr )
 
-for (let i = 0; i < array; i++) { //Con un for recorro mi var que tiene el objeto hasta la posicion 9 
-  const posititionTable = tableMedals[i]; //
+  for (let i = 0; i < array; i++) { //Con un for recorro mi var que tiene el objeto hasta la posicion 9 
 
-  let row = document.createElement("tr");
+    const posititionTable = tableMedals[i]; //
 
-  let td = document.createElement("td");
-  td.innerHTML = posititionTable.team;
-  row.appendChild(td);
+    let row = document.createElement("tr");
 
-  td = document.createElement("td");
-  td.innerHTML = posititionTable.gold;
-  row.appendChild(td);
+    let td = document.createElement("td");
+    td.innerHTML = posititionTable.team;
+    row.appendChild(td);
 
-  td = document.createElement("td");
-  td.innerHTML = posititionTable.silver;
-  row.appendChild(td);
+    td = document.createElement("td");
+    td.innerHTML = posititionTable.gold;
+    row.appendChild(td);
 
-  td = document.createElement("td");
-  td.innerHTML = posititionTable.bronce;
-  row.appendChild(td);
+    td = document.createElement("td");
+    td.innerHTML = posititionTable.silver;
+    row.appendChild(td);
 
-  td = document.createElement("td");
-  td.innerHTML = posititionTable.total;
-  row.appendChild(td);
+    td = document.createElement("td");
+    td.innerHTML = posititionTable.bronce;
+    row.appendChild(td);
 
-  tableBody.appendChild(row);
+    td = document.createElement("td");
+    td.innerHTML = posititionTable.total;
+    row.appendChild(td);
 
+    tableBody.appendChild(row);
+
+  }
+  element.appendChild(tableBody);
 }
-element.appendChild(tableBody);
-}
-topOfMedals (tableRankingTeam, 10);
+topOfMedals(tableRankingTeam, 10);
 
-const button = document.getElementById("buttonMedals"); //accedo al boton de ver mas 
-button.addEventListener("click", function(){
-  topOfMedals (modalTable,tableMedals.length );
+
+button.addEventListener("click", function () {
+  topOfMedals(modalTable, tableMedals.length);
   document.getElementById("containerFatherMain").style.display = "none"; //oculto toda la seccion de inicio 
   document.getElementById("bigTable").style.display = "block"; //le indico que muestre la tabla 
 }); //al dar clic se invoca la funcion de la tabla grande donde estan todas las medallas 
-//FUNCION QUE REFRESCA LA PAG (BOTON DE CERRAR DEL MEDALLERO-COMPLETO)
-function reload (){
-  location.reload();
-  }
-  const buttonClose = document.getElementById("close"); //accedo a boton de cerrar
-  buttonClose.addEventListener("click", reload); //Le indico al boton close que ejecute la funcion que refresca la pagina.  
+
+
+const buttonClose = document.getElementById("close"); //accedo a boton de cerrar
+buttonClose.addEventListener("click", reload); //Le indico al boton close que ejecute la funcion que refresca la pagina.  
+//Esta es la tabla que aparece en el modal 
+
 
 //FUNCION PARA LOS ATLETAS DESTACADOS
 let featuredAthletes = computeDataTwo(datos.athletes);
 
-function generateTemplate (element, position){
+function generateTemplate(element, position) {
 
-    const imageMedal = document.createElement('div');
-    imageMedal.classList.add("imageMedal");
-    imageMedal.innerHTML = '<img src="./imagenes/medallas.png" />';
-    element.appendChild(imageMedal);
+  const imageMedal = document.createElement('div');
+  imageMedal.classList.add("imageMedal");
+  imageMedal.innerHTML = '<img src="./imagenes/medallas.png" />';
+  element.appendChild(imageMedal);
 
-    const medalfeatureAthlete = document.createElement('p');
-    medalfeatureAthlete.classList.add("medalFeatureAthletes");
-    medalfeatureAthlete.innerHTML = featuredAthletes[position].gold +" "+ featuredAthletes[position].silver +" "+featuredAthletes[position].bronce;
-    element.appendChild(medalfeatureAthlete);
+  const medalfeatureAthlete = document.createElement('p');
+  medalfeatureAthlete.classList.add("medalFeatureAthletes");
+  medalfeatureAthlete.innerHTML = featuredAthletes[position].gold + " " + featuredAthletes[position].silver + " " + featuredAthletes[position].bronce;
+  element.appendChild(medalfeatureAthlete);
 
-    const nameAthlete = document.createElement('p');
-    nameAthlete.classList.add("nameAthlete");
-    nameAthlete.innerHTML = featuredAthletes[position].name;
-    element.appendChild(nameAthlete);
+  const nameAthlete = document.createElement('p');
+  nameAthlete.classList.add("nameAthlete");
+  nameAthlete.innerHTML = featuredAthletes[position].name;
+  element.appendChild(nameAthlete);
 }
 generateTemplate(document.getElementById("one"), 0);
 generateTemplate(document.getElementById("two"), 1);
@@ -251,14 +244,14 @@ generateTemplate(document.getElementById("ten"), 9);
 
 //FUNCION PARA EL BOTON DE VOLVER ARRIBA
 
-function goTop(pxPantalla){ //Parametro de cuanto px de pantalla quiero que aparezca el boton
-  window.addEventListener("scroll", ()=>{ //agregamos un evento escroll a la ventanda del navegador
+function goTop(pxPantalla) { //Parametro de cuanto px de pantalla quiero que aparezca el boton
+  window.addEventListener("scroll", () => { //agregamos un evento escroll a la ventanda del navegador
     let scroll = document.documentElement.scrollTop;
     //console.log(scroll);
     let buttonTop = document.getElementById("btnArriba");
-    if(scroll > pxPantalla){
+    if (scroll > pxPantalla) {
       buttonTop.style.right = 2 + "rem";
-    }else{
+    } else {
       buttonTop.style.right = -10 + "rem";
     }
   })
