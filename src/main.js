@@ -166,7 +166,7 @@ orderBySelect.addEventListener('change', (event) => {
 
 //FUNCION PARA CREAR TABLA DE RANKING DE PAISES 
 let tableMedals = computeData(datos.athletes); //Meto mi funcion en una variable 
-//console.log(tableMedals);
+ //console.log(tableMedals);
 let tableRankingTeam = document.getElementById("tableMedals"); //accedo a la tabla en el html
 let modalTable = document.getElementById("tableMedalsModal"); 
 
