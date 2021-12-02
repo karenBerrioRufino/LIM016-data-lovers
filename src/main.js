@@ -16,7 +16,6 @@ const orderBySelect = document.getElementById('orderBySelect');//select para ord
 const gender = document.getElementById('gender');
 const header = document.querySelector('.imgHeader');
 const containerGender = document.querySelector('.containerGender');//form gender
-//const buscador = document.getElementById('buscador');
 const tableRankingTeam = document.getElementById("tableMedals"); //accedo a la tabla en el html
 const modalTable = document.getElementById("tableMedalsModal");
 const button = document.getElementById("buttonMedals"); //accedo al boton de ver mas 
@@ -159,7 +158,6 @@ orderBySelect.addEventListener('change', (event) => {
     insertHtmlAtheles(sortByNameReverse.map(generateAthleteTemplate).join(''));
   }
 });
-
 
 //FUNCION PARA CREAR TABLA DE RANKING DE PAISES 
 let tableMedals = computeData(datos.athletes); //Meto mi funcion en una variable 

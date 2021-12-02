@@ -1,3 +1,4 @@
+
 //funcion para filtrar
 const functionAll = (array, condicion) => {
   return array.filter(condicion);
@@ -129,7 +130,13 @@ const computeData = (datos) => {
   //transformando el Map en un array de noc y total 
   const array = [];
   mapCountry.forEach((value, key) => {
-    const totalMedalByNoc = { team: key, gold: value.gold, silver: value.silver, bronce: value.bronze, total: value.total };
+    const totalMedalByNoc = {
+      team: key,
+      gold: value.gold,
+      silver: value.silver,
+      bronce: value.bronze,
+      total: value.total
+    };
     array.push(totalMedalByNoc);
     //console.log(totalMedalByNoc);
   })
@@ -149,7 +156,12 @@ const computeDataTwo = (datos) => {
   for (let j = 0; j < datos.length; j++) {
     const element = datos[j];
     if (!mapAthletes.has(element.name)) { //probará su presencia en el objeto Set
-      const initValueAthletes = { gold: 0, bronze: 0, silver: 0, total: 0 }
+      const initValueAthletes = {
+        gold: 0,
+        bronze: 0,
+        silver: 0,
+        total: 0
+      }
       mapAthletes.set(element.name + " " + element.team, initValueAthletes) //El key es element.name y el value es todo lo q esta en la var initValueAthletes
       //console.log(mapAthletes);
     }
@@ -174,9 +186,15 @@ const computeDataTwo = (datos) => {
   //transformando el Map en un array de atletas, pais y medallas  
   const arrayAthletes = [];
   mapAthletes.forEach((value, key) => {
-    const totalMedalByAthletes = { name: key, gold: value.gold, silver: value.silver, bronce: value.bronze, total: value.total };
+    const totalMedalByAthletes = {
+      name: key,
+      gold: value.gold,
+      silver: value.silver,
+      bronce: value.bronze,
+      otal: value.total
+    };
     arrayAthletes.push(totalMedalByAthletes);
-    //console.log(arrayAthletes);
+
   })
   //Ordenando de mayor a menor el total de medallas por atletas 
   return arrayAthletes.sort(function (prev, next) {
