@@ -6,54 +6,73 @@
     box-sizing: border-box;
     /*para mover el modelo de caja*/
 }
-
-/*
-body {
-counter-reset: none;
-}
-*/
-
 .imgHeader {
     display: flex;
     width: 100%;
-    cursor: pointer;
 }
-
-.containerHeader p {
+.containerHeader p{
     display: flex;
     font-family: "Rio2016";
     font-size: 30px;
-    color: #f8f7f7;
-    ;
+    color:#f8f7f7; ;
     margin-left: 30px;
-    margin-top: -80px;
+    margin-top: -80px;  
 }
+/*BUSCADOR*/
+.containerSearch{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #00133A;
+    height: 50px;
+    width: 100%;   
+}
+.search{
+    border: none;
+    background: none;
+    outline: none; 
+    color: black;
+    font-size: 20px;
+    line-height: 60px;
+    transition: .3s;
+    width: 0%;  
+}
+.search:focus{
+    color: white;
+}
+#i{
+    
+    font-size: 20px;
+    color: white;
+}
+::placeholder{ color: #ffffffc9;}
 
+@media screen and (min-width:480px){ /*CELULAR*/
+    .containerSearch:hover > .search {
+        width: 190px;
+        
+    }
+}
 /* -------CARRUSEL DE FOTOS-------*/
-
 .carouselContainer {
     margin: auto;
     width: 100%;
     padding: 20px;
     display: block;
 }
-
 ul, li {
     padding: 0;
     margin: 0;
     list-style: none;
 }
-
 img p {
     position: relative;
 }
-
 ul.sliderImg {
     position: relative;
     width: 100%;
     height: 500px;
 }
-
 ul.sliderImg li {
     position: absolute;
     left: 0px;
@@ -63,14 +82,12 @@ ul.sliderImg li {
     height: inherit;
     transition: opacity .5s;
 }
-
 ul.sliderImg li img {
     width: 90%;
     height: 500px;
     margin-left: 5%;
     /*object-fit: cover;*/
 }
-
 .txt {
     position: absolute;
     top: 450px;
@@ -81,27 +98,22 @@ ul.sliderImg li img {
     font-weight: bolder;
     font-size: 25px;
 }
-
 ul.sliderImg li:first-child {
     opacity: 1;
     /*Mostramos el primer <li>*/
 }
-
 ul.sliderImg li:target {
     opacity: 1;
     /*Mostramos el boton que pulsemos*/
 }
-
 .indicator {
     text-align: center;
     margin: 20px;
 }
-
 .indicator li {
     display: inline-block;
     text-align: center;
 }
-
 .indicator li a {
     display: inline-block;
     color: white;
@@ -113,12 +125,10 @@ ul.sliderImg li:target {
     align-content: center;
     border-radius: 100%;
 }
-
 .indicator li a:hover {
     background-color: #F4D63A;
     color: #00133A;
 }
-
 .containerFatherMain {
     display: flex;
     justify-content: center;
@@ -416,16 +426,69 @@ p {
     gap: 1rem 1rem;
     justify-content: center;
 }
-
-footer {
-    background-color: #00133A;
-    color: #f8f7f7;
-    text-align: center;
-    padding: 0.5rem 0;
-    font-size: 15px;
-    position: static;
+footer{
+display: flex;
+background-color: #00133A;
+color: white;
+font-family: 'Handlee', cursive;
+height: 270px;
+width: 100%;
+justify-content: space-around;
+padding: 20px;
 }
-
+.socialMedia{
+display: flex;
+width: 250px;
+flex-direction: column;
+align-items: flex-start;
+margin-left: 80px;
+}
+.socialMedia p{
+font-weight: bold;
+font-size: 18px;
+width: 170px;
+text-align: center;
+padding: 8px;
+}
+.fity{
+border-radius: 50%;
+width: 175px;  
+flex-direction: row;
+cursor: pointer;
+}
+.facebook,
+.instagram,
+.twitter,
+.youtube
+{    
+height: 40px;
+}
+.logoFoo{
+display: flex;
+height: 160px;
+align-items: center;
+}
+.footerLogo{
+width: 100px;
+height: 140px;
+}
+.logoFoo p{
+text-align: justify;
+width: 330px;
+padding-left: 15px;
+height: 90px;
+}
+.copyright{ 
+display: flex;
+flex-direction: column;
+height: 180px;
+justify-content: flex-end;
+}
+.copyright p{
+width: 280px;
+text-align: center;
+font-size: 12px;
+}
 /*Boton volver Arriba*/
 
 .btnArriba {
