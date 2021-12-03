@@ -1,50 +1,55 @@
 <!DOCTYPE html>
 <html>
-    <head>
-    <meta charset="utf-8">
-    <title>Data Lovers</title>
-    <link rel="stylesheet" href="style.css" />
-    <script src="https://kit.fontawesome.com/c47856f5c7.js" crossorigin="anonymous"></script>
-    </head>
-    <body>
-      <header>
-      <nav class="containerHeader">
-        <img class="imgHeader" src="./imagenes/header-logo-1.PNG" alt="Header Logo">
-        <p>Um mundo novo</p>
-      </nav> <br><br>
-      <!--CARRUSEL DE FOTOS-->
-      <div class="carouselContainer" id="carousel">
-        <ul class="sliderImg">
-          <li id="slide1"><img src="./imagenes/carousel1.jpeg" alt="Photo1">
-            <p class="txt">Presentación de las mascotas VINICIUS y TOM</p>
-          </li>
-          <li id="slide2"><img src="./imagenes/carousel2.jpeg" alt="Photo2">
-            <p class="txt">Ceremonia de clausura de los Juegos Olimpicos Rio 2016</p>
-          </li>
-          <li id="slide3"><img src="./imagenes/carousel5.jpeg" alt="Photo3">
-            <p class="txt">La atleta colombiana Caterine Ibarguen realiza su triple salto.</p>
-          </li>
-          <li id="slide4"><img src="./imagenes/carousel4.jpeg" alt="Photo4">
-            <p class="txt">Debut de atletas peruanas</p>
-          </li>
-          <li id="slide5"><img src="./imagenes/carousel3.jpeg" alt="Photo5">
-            <p class="txt">Complejo deportivo "Parque Olímpico de Barra de Tijuca", Brasil</p>
-          </li>
-        </ul>
-        <ul class="indicator">
-          <li><a href="#slide1">1</a></li>
-          <li><a href="#slide2">2</a></li>
-          <li><a href="#slide3">3</a></li>
-          <li><a href="#slide4">4</a></li>
-          <li><a href="#slide5">5</a></li>
-        </ul>
-      </div>
-      </header>
 
-      <br>
-      <!--aqui va el filtro y el ordenar-->
-      <section class="filterContainer" id="principal">
 
+<head>
+  <meta charset="utf-8">
+  <title>Data Lovers</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://kit.fontawesome.com/c47856f5c7.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <header>
+    <nav class="containerHeader">
+      <img class="imgHeader" src="./imagenes/header-logo-1.PNG" alt="Header Logo">
+      <p>Um mundo novo</p>
+    </nav>
+  </header><br><br>
+
+  <!--CARRUSEL DE FOTOS-->
+  <div class="carouselContainer" id="carousel">
+    <ul class="sliderImg">
+      <li id="slide1"><img src="./imagenes/carousel1.jpeg" alt="Photo1">
+        <p class="txt">Presentación de las mascotas VINICIUS y TOM</p>
+      </li>
+      <li id="slide2"><img src="./imagenes/carousel2.jpeg" alt="Photo2">
+        <p class="txt">Ceremonia de clausura de los Juegos Olimpicos Rio 2016</p>
+      </li>
+      <li id="slide3"><img src="./imagenes/carousel5.jpeg" alt="Photo3">
+        <p class="txt">La atleta colombiana Caterine Ibarguen realiza su triple salto.</p>
+      </li>
+      <li id="slide4"><img src="./imagenes/carousel4.jpeg" alt="Photo4">
+        <p class="txt">Debut de atletas peruanas</p>
+      </li>
+      <li id="slide5"><img src="./imagenes/carousel3.jpeg" alt="Photo5">
+        <p class="txt">Complejo deportivo "Parque Olímpico de Barra de Tijuca", Brasil</p>
+      </li>
+    </ul>
+    <ul class="indicator">
+      <li><a href="#slide1">1</a></li>
+      <li><a href="#slide2">2</a></li>
+      <li><a href="#slide3">3</a></li>
+      <li><a href="#slide4">4</a></li>
+      <li><a href="#slide5">5</a></li>
+    </ul>
+  </div>
+ 
+
+  <br>
+  <!--aqui va el filtro y el ordenar-->
+  <section class="filterContainer" id="principal">
+      
         <div class="filterTeamAndSport">
           <label> PAIS:<br></label>
           <select id="team">
@@ -80,7 +85,7 @@
         </div>
 
       </section>
-      <br>
+  
 
       <!--mensaje de error-->
       <section id="error" class="error2">
@@ -90,22 +95,18 @@
       </section>
       <!----Buscador---->
       <div class="containerSearch">
-        <input type="text" id="search" class="search" placeholder="Encuentra a un atleta">
+        <input type="text" id="search" class="search" placeholder="Encuentra a un atleta ">
         <i class="fas fa-search" id="i"></i>
       </div>
       
       <section id="gridForTest" class="grid">
         <!----plantilla de los atletas-->
       </section>
-
+      <br>
       <main>
-         
-
         <section id="containerFatherMain" class="containerFatherMain">
-         
-          <div class="todoMain">
             <div id="smallTable" class="smallTable">
-              <table class="tableMedals" id="tableMedals" border="1">
+              <table class="tableMedals" id="tableMedals"> <!--border="1"-->
                 <caption>🥇🥈🥉
                   <br>Tabla de Medallas
                 </caption>
@@ -118,89 +119,65 @@
                 </tr>
               </table>
               <button class="buttonMedals" id="buttonMedals">Ver más</button>
-
+        </div>
+        <div class="featureAthletes">
+          <p class="titleFeaturedAthletes"> Atletas Destacados</p>
+          <section class="divOfFeatureAthletes">
+            <div class="f-a" id="one"><img class="photoAthletes" src="./imagenes/michael Phelps.jpg" alt=""></div>
+            <div class="f-a" id="two"><img class="photoAthletes" src="./imagenes/Simone Arianne Biles.jpeg" alt="">
+            </div><br>
+          </section>
+          <section class="divOfFeatureAthletes">
+            <div class="f-a" id="three"><img class="photoAthletes" src="./imagenes/Kathleen Genevieve.jpg" alt=""></div>
+            <div class="f-a" id="four"><img class="photoAthletes" src="./imagenes/Nathan Ghar-Jun Adrian.jpg" alt="">
+            </div><br>
+          </section>
+          <section class="divOfFeatureAthletes">
+            <div class="f-a" id="five"><img class="photoAthletes" src="./imagenes/Maya-DiRado.jpg" alt=""></div>
+            <div class="f-a" id="six"><img class="photoAthletes" src="./imagenes/Katinka Hossz.jpg" alt=""></div><br>
+          </section>
+          <section class="divOfFeatureAthletes">
+            <div class="f-a" id="seven"><img class="photoAthletes" src="./imagenes/Simone Ashley Manuel.jpg" alt="">
             </div>
-            <div class="featureAthletes">
-              <p class="titleFeaturedAthletes"> Atletas Destacados</p>
-              <section class="divOfFeatureAthletes">
-                <div class="f-a" id="one"><img class="photoAthletes" src="./imagenes/michael Phelps.jpg" alt=""></div>
-                <div class="f-a" id="two"><img class="photoAthletes" src="./imagenes/Simone Arianne Biles.jpeg" alt="">
-                </div><br>
-              </section>
-              <section class="divOfFeatureAthletes">
-                <div class="f-a" id="three"><img class="photoAthletes" src="./imagenes/Kathleen Genevieve.jpg" alt=""></div>
-                <div class="f-a" id="four"><img class="photoAthletes" src="./imagenes/Nathan Ghar-Jun Adrian.jpg" alt="">
-                </div><br>
-              </section>
-              <section class="divOfFeatureAthletes">
-                <div class="f-a" id="five"><img class="photoAthletes" src="./imagenes/Maya-DiRado.jpg" alt=""></div>
-                <div class="f-a" id="six"><img class="photoAthletes" src="./imagenes/Katinka Hossz.jpg" alt=""></div><br>
-              </section>
-              <section class="divOfFeatureAthletes">
-                <div class="f-a" id="seven"><img class="photoAthletes" src="./imagenes/Simone Ashley Manuel.jpg" alt="">
-                </div>
-                <div class="f-a" id="eight"><img class="photoAthletes" src="./imagenes/Emma McKeon.jpg" alt=""></div>
-              </section>
-              <section class="divOfFeatureAthletes">
-                <div class="f-a" id="nine"><img class="photoAthletes" src="./imagenes/Penelope Oleksiak.jpg" alt=""></div>
-                <div class="f-a" id="ten"><img class="photoAthletes" src="./imagenes/Denis Mikhaylovich Ablyazin.jpg"
-                    alt=""></div>
-              </section>
-            </div>
-          </div>
-        </section>
-        <div id="bigTable">
-          <table class="tableMedalsModal" id="tableMedalsModal" border="1">
-            <button title="cerrar" id="close" class="buttonModal">X</button>
-            <caption>🥇🥈🥉
-              <br>Tabla de Medallas
-            </caption>
-            <tr>
-              <th>Equipos</th>
-              <th>Oro</th>
-              <th>Plata</th>
-              <th>Bronce</th>
-              <th>Total</th>
-            </tr>
-          </table>
+            <div class="f-a" id="eight"><img class="photoAthletes" src="./imagenes/Emma McKeon.jpg" alt=""></div>
+          </section>
+          <section class="divOfFeatureAthletes">
+            <div class="f-a" id="nine"><img class="photoAthletes" src="./imagenes/Penelope Oleksiak.jpg" alt=""></div>
+            <div class="f-a" id="ten"><img class="photoAthletes" src="./imagenes/Denis Mikhaylovich Ablyazin.jpg"
+                alt=""></div>
+          </section>
         </div>
+      
+    </section>
+    <!--medallero grande-->
+    <div id="bigTable">
+      <table class="tableMedalsModal" id="tableMedalsModal" border="1">
+        <button title="cerrar" id="close" class="buttonModal">X</button>
+        <caption>🥇🥈🥉
+          <br>Tabla de Medallas
+        </caption>
+        <tr>
+          <th>Equipos</th>
+          <th>Oro</th>
+          <th>Plata</th>
+          <th>Bronce</th>
+          <th>Total</th>
+        </tr>
+      </table>
+    </div>
 
-        <!--Boton de Volver Arriba-->
-        <a href="#principal"><img class="btnArriba" id="btnArriba" title="Volver arriba" src="./imagenes/btnArriba.png"
-            alt=""></a>
-      </main>
-      <footer>
-        <div class="logoFoo">
-          <img src="./imagenes/footerLogo.png" alt="Footer Logo" class="footerLogo">
-          <p>Los Juegos de Río 2016 ofrecen el mejor entorno posible para alcanzar el
-            mejor rendimiento. Los atletas disfrutan de unas instalaciones de primer
-            nivel, incluida una magnífica villa, todo ubicado en una de las ciudades
-            más bellas del mundo.
-          </p>
-        </div>
-        <div class="copyright">
-          <p>Copyright © 2021. Todos los derechos reservados.
-            Juegos Olímpicos - Río 2016
-          </p>
-        </div>
-        <div class="socialMedia">
-          <p>REDES SOCIALES</p>
-          <div class="fity">
-            <a href="https://www.facebook.com/rio2k16/" target="_blank">
-              <img src="./imagenes/facebook.png" alt="facebook" class="facebook" title="Facebook">
-            </a>
-            <a href="https://www.instagram.com/rio_de_janeiro_olympics_2016/?hl=es" target="_blank">
-              <img src="./imagenes/instagram.png" alt="instagram" class="instagram" title="Instagram">
-            </a>
-            <a href="https://twitter.com/Rio2016" target="_blank">
-              <img src="./imagenes/twitter.png" alt="twitter" class="twitter" title="Twitter">
-            </a>
-            <a href="https://www.youtube.com/channel/UCTl3QQTvqHFjurroKxexy2Q" target="_blank">
-              <img src="./imagenes/youtube.png" alt="youtube" class="youtube" title="Youtube">
-            </a>
-          </div>
-        </div>
-      </footer>
-      <script src="main.js" type="module"></script>
-    </body>
+    <!--Boton de Volver Arriba-->
+    <a href="#principal"><img class="btnArriba" id="btnArriba" title="Volver arriba" src="./imagenes/btnArriba.png"
+        alt=""></a>
+  </main>
+  <br>
+
+  <footer class="copyright">
+      <p>Copyright © 2021. Todos los derechos reservados.
+        Juegos Olímpicos - Río 2016
+      </p>
+  </footer>
+  <script src="main.js" type="module"></script>
+</body>
+
 </html>

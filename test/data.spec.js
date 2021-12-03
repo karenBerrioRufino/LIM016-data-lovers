@@ -1,16 +1,6 @@
+import { functionAll,filterByTeamFunc,sortData, sortByName } from '../src/data.js';
 
 
-import { functionAll,filterByTeamFunc } from '../src/data.js';
-
-/*
-describe('probando la funcion sortData', () => {
-  it('is a function', () => {
-    expect(typeof sortData).toBe('function');
-  });
-
-  
-});
-*/
 describe('probando la funcion functionAll', () => {
   it('debe ser una funcion', () => {
     expect(typeof functionAll).toBe('function');
@@ -56,5 +46,58 @@ it ('deberia retornar cuantos atletas por el pais "France', ()=>{
   }];
   let testFunctionAll = functionAll(arrayTest, filterByTeamFunc('France'));
   expect (testFunctionAll.length).toBe(1);
-})
+});
+
+describe('probando la funcion sortData', () => {
+  it('is a function', () => {
+    expect(typeof sortData).toBe('function');
+  });
+  
+});
+
+it ('deberia ordenar atletas de manera descendente',() => {
+  
+  let arrayTest2 =[ {
+    "name": "Robson Donato Conceio",
+    "gender": "M",
+    "height": "171",
+    "weight": "57",
+    "sport": "Boxing",
+    "team": "Brazil",
+    "noc": "BRA",
+    "age": 27,
+    "event": "Boxing Men's Lightweight",
+    "medal": "Gold"
+  },
+  {
+    "name": "Julio",
+    "gender": "M",
+    "height": "193",
+    "weight": "80",
+    "sport": "Swimming",
+    "team": "United States",
+    "noc": "USA",
+    "age": 21,
+    "event": "Swimming Men's 4 x 200 metres Freestyle Relay",
+    "medal": "Gold"
+  },
+  {
+    "name": "Sally Conway",
+    "gender": "F",
+    "height": "167",
+    "weight": "70",
+    "sport": "Judo",
+    "team": "Great Britain",
+    "noc": "GBR",
+    "age": 29,
+    "event": "Judo Women's Middleweight",
+    "medal": "Bronze"
+  }];
+
+  let testSortData = sortData(arrayTest2, sortByName, false);
+
+  expect (testSortData[0].name).toBe("Sally Conway");
+  expect (testSortData[1].name).toBe("Robson Donato Conceio");
+  expect (testSortData[2].name).toBe("Julio");
+});
 
