@@ -34,8 +34,6 @@ const genderAll = (array) => {
   return new Set(newArrGender);
 
 }
-
-
 const filterByTeamFunc = (teamSelected) => {/*funcion que me retorna una funcion los atletas de un pais 
   que sean igual al valor del select */
   return (athlete) => athlete.team == teamSelected;
