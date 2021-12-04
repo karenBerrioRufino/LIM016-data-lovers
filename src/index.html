@@ -44,110 +44,109 @@
       <li><a href="#slide5">5</a></li>
     </ul>
   </div>
- 
+  <div class="containerQuery">
+    <!--aqui va el filtro y el ordenar-->
+    <section class="filterContainer" id="principal">
+      <div class="filterTeamAndSport">
+        <label> PAIS:<br></label>
+        <select id="team">
+          <!--filtro de pais-->
+        </select>
 
-  <br>
-  <!--aqui va el filtro y el ordenar-->
-  <section class="filterContainer" id="principal">
-      
-        <div class="filterTeamAndSport">
-          <label> PAIS:<br></label>
-          <select id="team">
-            <!--filtro de pais-->
-          </select>
-
-        </div>
-
-        <div id="displaySport" class="filterTeamAndSport">
-          <label> DEPORTE:<br></label>
-          <select id="sport">
-            <!--filtro de deporte-->
-          </select>
-        </div>
-
-        <form class="containerGender filterTeamAndSport">
-          <label> GENERO:<br></label>
-          <select name="gender" id="gender" class="gender">
-            <option value="todos" selected>Todos</option>
-          </select>
-        </form>
-
-        <!-- Lista de selección  para ordenar-->
-
-        <div id="displayOrder" class="filterTeamAndSport">
-          <label>ORDENAR:</label>
-          <select id="orderBySelect" name="combo">
-            <!-- Opciones de la lista (*con selected puedo colocar una opcion por defecto* OJO) -->
-            <option value="1">Edad</option>
-            <option value="2">nombres de manera ascendente</option>
-            <option value="3">nombres de manera descendente</option>
-          </select>
-        </div>
-
-      </section>
-  
-
-      <!--mensaje de error-->
-      <section id="error" class="error2">
-        <h1 class="h1Error"> No se encontraron atletas para esta busqueda.<br>¡Intenta nuevamente!</h1>
-
-        <img class="imgMsjError" src="./imagenes/mascotasoficiales.png">
-      </section>
-      <!----Buscador---->
-      <div class="containerSearch">
-        <input type="text" id="search" class="search" placeholder="Encuentra a un atleta ">
-        <i class="fas fa-search" id="i"></i>
       </div>
-      
-      <section id="gridForTest" class="grid">
-        <!----plantilla de los atletas-->
-      </section>
-      <br>
-      <main>
-        <section id="containerFatherMain" class="containerFatherMain">
-            <div id="smallTable" class="smallTable">
-              <table class="tableMedals" id="tableMedals"> <!--border="1"-->
-                <caption>🥇🥈🥉
-                  <br>Tabla de Medallas
-                </caption>
-                <tr>
-                  <th>Equipos</th>
-                  <th>Oro</th>
-                  <th>Plata</th>
-                  <th>Bronce</th>
-                  <th>Total</th>
-                </tr>
-              </table>
-              <button class="buttonMedals" id="buttonMedals">Ver más</button>
-        </div>
-        <div class="featureAthletes">
-          <p class="titleFeaturedAthletes"> Atletas Destacados</p>
-          <section class="divOfFeatureAthletes">
-            <div class="f-a" id="one"><img class="photoAthletes" src="./imagenes/michael Phelps.jpg" alt=""></div>
-            <div class="f-a" id="two"><img class="photoAthletes" src="./imagenes/Simone Arianne Biles.jpeg" alt="">
-            </div><br>
-          </section>
-          <section class="divOfFeatureAthletes">
-            <div class="f-a" id="three"><img class="photoAthletes" src="./imagenes/Kathleen Genevieve.jpg" alt=""></div>
-            <div class="f-a" id="four"><img class="photoAthletes" src="./imagenes/Nathan Ghar-Jun Adrian.jpg" alt="">
-            </div><br>
-          </section>
-          <section class="divOfFeatureAthletes">
-            <div class="f-a" id="five"><img class="photoAthletes" src="./imagenes/Maya-DiRado.jpg" alt=""></div>
-            <div class="f-a" id="six"><img class="photoAthletes" src="./imagenes/Katinka Hossz.jpg" alt=""></div><br>
-          </section>
-          <section class="divOfFeatureAthletes">
-            <div class="f-a" id="seven"><img class="photoAthletes" src="./imagenes/Simone Ashley Manuel.jpg" alt="">
-            </div>
-            <div class="f-a" id="eight"><img class="photoAthletes" src="./imagenes/Emma McKeon.jpg" alt=""></div>
-          </section>
-          <section class="divOfFeatureAthletes">
-            <div class="f-a" id="nine"><img class="photoAthletes" src="./imagenes/Penelope Oleksiak.jpg" alt=""></div>
-            <div class="f-a" id="ten"><img class="photoAthletes" src="./imagenes/Denis Mikhaylovich Ablyazin.jpg"
-                alt=""></div>
-          </section>
-        </div>
-      
+
+      <div id="displaySport" class="filterTeamAndSport">
+        <label> DEPORTE:<br></label>
+        <select id="sport">
+          <!--filtro de deporte-->
+        </select>
+      </div>
+
+      <form class="containerGender filterTeamAndSport">
+        <label> GENERO:<br></label>
+        <select name="gender" id="gender" class="gender">
+          <option value="todos" selected>Todos</option>
+        </select>
+      </form>
+
+      <!-- Lista de selección  para ordenar-->
+
+      <div id="displayOrder" class="filterTeamAndSport">
+        <label>ORDENAR:<br></label>
+        <select id="orderBySelect" name="combo">
+          <!-- Opciones de la lista (*con selected puedo colocar una opcion por defecto* OJO) -->
+          <option value="1">Edad</option>
+          <option value="2">nombres de manera ascendente</option>
+          <option value="3">nombres de manera descendente</option>
+        </select>
+      </div>
+    </section>
+
+    <!----Buscador---->
+    <div class="containerSearch">
+      <input type="text" id="search" class="search" placeholder="Encuentra a un atleta ">
+      <i class="fas fa-search" id="i"></i>
+    </div>
+  </div>
+
+  <!--mensaje de error-->
+  <section id="error" class="error2">
+    <h1 class="h1Error"> No se encontraron atletas para esta busqueda.<br>¡Intenta nuevamente!</h1>
+
+    <img class="imgMsjError" src="./imagenes/mascotasoficiales.png">
+  </section>
+
+
+  <section id="gridForTest" class="grid">
+    <!----plantilla de los atletas-->
+  </section>
+  <br>
+  <main>
+    <section id="containerFatherMain" class="containerFatherMain">
+      <div id="smallTable" class="smallTable">
+        <table class="tableMedals" id="tableMedals">
+          <!--border="1"-->
+          <caption>🥇🥈🥉
+            <br>Tabla de Medallas
+          </caption>
+          <tr>
+            <th>Equipos</th>
+            <th>Oro</th>
+            <th>Plata</th>
+            <th>Bronce</th>
+            <th>Total</th>
+          </tr>
+        </table>
+        <button class="buttonMedals" id="buttonMedals">Ver más</button>
+      </div>
+      <div class="featureAthletes">
+        <p class="titleFeaturedAthletes"> Atletas Destacados</p>
+        <section class="divOfFeatureAthletes">
+          <div class="f-a" id="one"><img class="photoAthletes" src="./imagenes/michael Phelps.jpg" alt=""></div>
+          <div class="f-a" id="two"><img class="photoAthletes" src="./imagenes/Simone Arianne Biles.jpeg" alt="">
+          </div><br>
+        </section>
+        <section class="divOfFeatureAthletes">
+          <div class="f-a" id="three"><img class="photoAthletes" src="./imagenes/Kathleen Genevieve.jpg" alt=""></div>
+          <div class="f-a" id="four"><img class="photoAthletes" src="./imagenes/Nathan Ghar-Jun Adrian.jpg" alt="">
+          </div><br>
+        </section>
+        <section class="divOfFeatureAthletes">
+          <div class="f-a" id="five"><img class="photoAthletes" src="./imagenes/Maya-DiRado.jpg" alt=""></div>
+          <div class="f-a" id="six"><img class="photoAthletes" src="./imagenes/Katinka Hossz.jpg" alt=""></div><br>
+        </section>
+        <section class="divOfFeatureAthletes">
+          <div class="f-a" id="seven"><img class="photoAthletes" src="./imagenes/Simone Ashley Manuel.jpg" alt="">
+          </div>
+          <div class="f-a" id="eight"><img class="photoAthletes" src="./imagenes/Emma McKeon.jpg" alt=""></div>
+        </section>
+        <section class="divOfFeatureAthletes">
+          <div class="f-a" id="nine"><img class="photoAthletes" src="./imagenes/Penelope Oleksiak.jpg" alt=""></div>
+          <div class="f-a" id="ten"><img class="photoAthletes" src="./imagenes/Denis Mikhaylovich Ablyazin.jpg" alt="">
+          </div>
+        </section>
+      </div>
+
     </section>
     <!--medallero grande-->
     <div id="bigTable">
@@ -173,9 +172,9 @@
   <br>
 
   <footer class="copyright">
-      <p>Copyright © 2021. Todos los derechos reservados.
-        Juegos Olímpicos - Río 2016
-      </p>
+    <p>Copyright © 2021. Todos los derechos reservados.
+      Juegos Olímpicos - Río 2016
+    </p>
   </footer>
   <script src="main.js" type="module"></script>
 </body>
