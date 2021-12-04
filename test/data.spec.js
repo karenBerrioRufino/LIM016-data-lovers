@@ -1,39 +1,6 @@
 
 import { functionAll,filterByTeamFunc,sortData, sortByName, computeData, computeDataTwo } from '../src/data.js';
 
-
-const mockData = [
-  {
-    "name": "Meaghan Benfeito",
-    "sport": "Diving",
-    "team": "Canada",
-    "noc": "CAN",
-    "medal": "Bronze"
-  },
-  {
-    "name": "Brittany \"Britt\" Benn",
-    "sport": "Rugby Sevens",
-    "team": "Canada",
-    "noc": "CAN",
-    "medal": "Bronze"
-  },
-  {
-    "name": "Karen Bennett",
-    "sport": "Rowing",
-    "team": "Great Britain",
-    "noc": "GBR",
-    "medal": "Silver"
-  },
-  {
-    "name": "Mark Stewart Bennett",
-    "sport": "Rugby Sevens",
-    "team": "Great Britain",
-    "noc": "GBR",
-    "medal": "Silver"
-  }
-]
-
-
 describe('probando la funcion functionAll', () => {
   it('debe ser una funcion', () => {
     expect(typeof functionAll).toBe('function');
@@ -137,9 +104,28 @@ describe('probando la funcion computeData', () => {
   it('is a function', () => {
     expect(typeof computeData).toBe('function');
   });
-  it ('Deberia retornar 2 para Bronze', () =>{
-    const mockResult = computeData('Bronze', mockData)
-    expect(mockResult.medal).toBe(2);
+  it ('Deberia retornar cuantas medallas de oro, plata y bronce para el pais "Canada"', () =>{
+    let mockData = [
+      {
+        "name": "Meaghan Benfeito",
+        "sport": "Diving",
+        "team": "Canada",
+        "noc": "CAN",
+        "medal": "Bronze"
+      },
+      {
+        "name": "Brittany \"Britt\" Benn",
+        "sport": "Rugby Sevens",
+        "team": "Canada",
+        "noc": "CAN",
+        "medal": "Bronze"
+      }
+    ]
+    let mockResult = computeData(mockData);
+    expect(mockResult[0].gold).toBe(0);
+    expect(mockResult[0].silver).toBe(0);
+    expect(mockResult[0].bronce).toBe(2);
+    expect(mockResult[0].total).toBe(2);
   });
   it('No deberia ser Null', () => {
     expect(computeData).not.toBeNull();
