@@ -190,7 +190,7 @@ const computeDataTwo = (datos) => {
       gold: value.gold,
       silver: value.silver,
       bronce: value.bronze,
-      otal: value.total
+      total: value.total
     };
     arrayAthletes.push(totalMedalByAthletes);
 
