@@ -12,6 +12,7 @@ import {
   allCountries,
   allSport,
   computeData,
+  reload
 } from "./data.js";
 const arrayAthletes = datos.athletes;//aqui guardo la data de todos los atletas
 const arrayCountries = sortData(Array.from(allCountries(arrayAthletes))).reverse();//array de paises
@@ -25,12 +26,11 @@ const containerGender = document.querySelector('.containerGender');//form gender
 const tableRankingTeam = document.getElementById("tableMedals"); //accedo a la tabla en el html
 const modalTable = document.getElementById("tableMedalsModal");
 const button = document.getElementById("buttonMedals"); //accedo al boton de ver mas 
+const search = document.getElementById('search');
 
 //codigo para crear el buscador
 const searchingAth = () =>{
-let search = document.getElementById('search');
 let search2 = search.value.toLowerCase();
-let gridForTest = document.getElementById('gridForTest');
   const searching = arrayAthletes.filter(athlete => {
     return athlete.name.toLowerCase().includes(search2);
   });
@@ -41,12 +41,14 @@ let gridForTest = document.getElementById('gridForTest');
     document.getElementById("displayOrder").style.display = "block"; //mostramos
     document.getElementById("tableMedalsModal").style.display = "none";
     document.getElementById("close").style.display = "none";
+    document.getElementById("error").style.display = "none";
     if (search2 === "") {
       reload();
     }
   }
 }
-  search.addEventListener("keyup", searchingAth);
+
+search.addEventListener("keyup", searchingAth);
 
 //refrescado de la pagina dando click al header
 header.addEventListener('click', reload);
@@ -92,6 +94,7 @@ const generateOptionTemplate = (arrayF) => {
 };
 // variable que tiene al opcion predeterminada de los select
 const OptionselectedTemplate = `<option value="todos" selected="selected"> Todos </option>`;
+
 
 //funcion para insertar las opciones de los dos select en html
 const insertHtmArray = (elemet, htmlArray) => {
@@ -240,23 +243,10 @@ button.addEventListener("click", function () {
 
 const buttonClose = document.getElementById("close"); //accedo a boton de cerrar
 buttonClose.addEventListener("click", reload); //Le indico al boton close que ejecute la funcion que refresca la pagina.  
-//Esta es la tabla que aparece en el modal 
-//const button = document.getElementById("buttonMedals"); //accedo al boton de ver mas
-button.addEventListener("click", function () {
-  topOfMedals(modalTable, tableMedals.length);
-  document.getElementById("containerFatherMain").style.display = "none"; //oculto toda la seccion de inicio
-  document.getElementById("bigTable").style.display = "block"; //le indico que muestre la tabla
-}); //al dar clic se invoca la funcion de la tabla grande donde estan todas las medallas
-//FUNCION QUE REFRESCA LA PAG (BOTON DE CERRAR DEL MEDALLERO-COMPLETO)
-function reload() {
-  location.reload();
-}
-//const buttonClose = document.getElementById("close"); //accedo a boton de cerrar
-buttonClose.addEventListener("click", reload); //Le indico al boton close que ejecute la funcion que refresca la pagina.
-//Esta es la tabla que aparece en el modal
 
 //FUNCION PARA LOS ATLETAS DESTACADOS
 let featuredAthletes = computeDataTwo(datos.athletes);
+        //console.log(featuredAthletes);
 
 function generateTemplate(element, position) {
   const imageMedal = document.createElement("div");

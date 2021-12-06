@@ -6,9 +6,14 @@
     box-sizing: border-box;
     /*para mover el modelo de caja*/
 }
+html, body{
+  height: 100%;
+
+}
 .imgHeader {
     display: flex;
     width: 100%;
+    cursor: pointer;
 }
 .containerHeader p{
     display: flex;
@@ -45,13 +50,12 @@
     font-size: 20px;
     color: white;
 }
-::placeholder{ color: #ffffffc9;}
-
-@media screen and (min-width:480px){ /*CELULAR*/
-    .containerSearch:hover > .search {
-        width: 190px;
-    }
+::placeholder{ color: #ffffff;}
+.containerSearch:hover > .search {
+    width: 190px;
+    
 }
+
 
 /* -------CARRUSEL DE FOTOS-------*/
 .carouselContainer {
@@ -355,7 +359,9 @@ background-repeat: no-repeat;*/
 
 .nameAthlete {
     text-align: center;
-    font-size: 15px;
+    font-size: 20px;
+    background: white;
+    border-radius: 20px;
     font-family: 'Handlee', cursive;
     font-weight: bold;
     color: #00133A;
@@ -427,14 +433,18 @@ p {
     justify-content: center;
 }
 footer{
-display: flex;
+/*display: flex;*/
+position: static;
+bottom: 0;
 background-color: #00133A;
 color: white;
-font-family: 'Handlee', cursive;
-height: 270px;
 width: 100%;
+height: 100px;
 justify-content: space-around;
-padding: 20px;
+padding: 0.5rem 0;
+}
+.copyright p{
+    text-align: center;
 }
 .socialMedia{
 display: flex;
@@ -478,17 +488,8 @@ width: 330px;
 padding-left: 15px;
 height: 90px;
 }
-.copyright{ 
-display: flex;
-flex-direction: column;
-height: 180px;
-justify-content: flex-end;
-}
-.copyright p{
-width: 280px;
-text-align: center;
-font-size: 12px;
-}
+
+
 /*Boton volver Arriba*/
 
 .btnArriba {
@@ -548,3 +549,80 @@ li:hover {
     background-color: #adc0e6;
     cursor: pointer;
 }
+
+
+@media only screen and (min-width: 768px) and (max-width: 1024px){
+    .filterContainer{
+        display:flex; 
+        flex-direction: column; 
+        background: #ffffff;
+        max-width: 50%;
+        margin-left: 40px;
+        margin-top: none;
+    }
+    label{
+        color: #00133A;
+        font-size: 20px;
+    }
+    .filterTeamAndSport{
+        background: lightgrey;
+    }
+    .containerQuery{
+        display: flex; 
+        margin-right: 60px;
+        margin-left: 60px;
+        margin-top: 20px;
+        height: 350px;
+        background: lightgrey;
+    }
+    .containerFatherMain{
+        display: flex;
+        flex-direction: column;
+    }
+    .smallTable{
+        align-self: center;
+        width: 90%;
+    }
+    .containerSearch{
+        margin-top: 120px;
+        border-radius: 20px;
+        width:40%;
+    }
+    select{
+        height: 30px;
+        width: 280px;
+    }
+    .featureAthletes{
+        align-self: center;
+        background: lightgrey;
+    }
+    .error2{
+        margin-top: 100px;
+        margin-bottom: 350px;
+    }
+    .photoAthletes{
+    margin-left: 50px;
+    margin-top: 40px;
+    }
+    .titleFeaturedAthletes{
+        font-size: 45px;
+    }
+    .sportsContainer{
+        width: 50%;
+    }
+    .tableAthletes{
+        font-size: 25px;
+    }
+    .classAthlete{
+        max-width:150px;
+    }    
+} 
+@media only screen and (min-width: 360px) and (max-width: 640px){
+    .containerQuery{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: stretch;
+    }    
+}
+    

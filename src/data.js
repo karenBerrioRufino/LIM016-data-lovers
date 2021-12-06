@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */ //Desactive esa regla en el eslin ((Set y Map))
 
 //funcion para filtrar
 const functionAll = (array, condicion) => {
@@ -189,7 +190,7 @@ const computeDataTwo = (datos) => {
       gold: value.gold,
       silver: value.silver,
       bronce: value.bronze,
-      otal: value.total
+      total: value.total
     };
     arrayAthletes.push(totalMedalByAthletes);
 

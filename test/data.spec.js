@@ -1,5 +1,5 @@
-import { functionAll,filterByTeamFunc,sortData, sortByName } from '../src/data.js';
 
+import { functionAll,filterByTeamFunc,sortData, sortByName, computeData, computeDataTwo } from '../src/data.js';
 
 describe('probando la funcion functionAll', () => {
   it('debe ser una funcion', () => {
@@ -48,13 +48,6 @@ it ('deberia retornar cuantos atletas por el pais "France', ()=>{
   expect (testFunctionAll.length).toBe(1);
 });
 
-describe('probando la funcion sortData', () => {
-  it('is a function', () => {
-    expect(typeof sortData).toBe('function');
-  });
-  
-});
-
 it ('deberia ordenar atletas de manera descendente',() => {
   
   let arrayTest2 =[ {
@@ -101,3 +94,40 @@ it ('deberia ordenar atletas de manera descendente',() => {
   expect (testSortData[2].name).toBe("Julio");
 });
 
+
+describe('probando la funcion computeDataTwo', () => {
+  it('is a function', () => {
+    expect(typeof computeDataTwo).toBe('function');
+  });   
+});
+describe('probando la funcion computeData', () => {
+  it('is a function', () => {
+    expect(typeof computeData).toBe('function');
+  });
+  it ('Deberia retornar cuantas medallas de oro, plata y bronce para el pais "Canada"', () =>{
+    let mockData = [
+      {
+        "name": "Meaghan Benfeito",
+        "sport": "Diving",
+        "team": "Canada",
+        "noc": "CAN",
+        "medal": "Bronze"
+      },
+      {
+        "name": "Brittany \"Britt\" Benn",
+        "sport": "Rugby Sevens",
+        "team": "Canada",
+        "noc": "CAN",
+        "medal": "Bronze"
+      }
+    ]
+    let mockResult = computeData(mockData);
+    expect(mockResult[0].gold).toBe(0);
+    expect(mockResult[0].silver).toBe(0);
+    expect(mockResult[0].bronce).toBe(2);
+    expect(mockResult[0].total).toBe(2);
+  });
+  it('No deberia ser Null', () => {
+    expect(computeData).not.toBeNull();
+  });
+});
