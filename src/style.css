@@ -50,9 +50,9 @@
 @media screen and (min-width:480px){ /*CELULAR*/
     .containerSearch:hover > .search {
         width: 190px;
-        
     }
 }
+
 /* -------CARRUSEL DE FOTOS-------*/
 .carouselContainer {
     margin: auto;
