@@ -78,14 +78,23 @@ Esta es una pagina web para los Juegos Olímpicos de Rio 2016. Fue diseñado pen
   ✔️ Usa VanillaJS.
   
   ✔️ Pasa linter (`npm run pretest`)
+  
   ✔️ Pasa tests (`npm test`)
+  
   ✔️ Pruebas unitarias cubren un mínimo del 70% de statements, functions, lines y branches.
-  ✔️ Incluye _Definición del producto_ clara e informativa en.
+  
+  ✔️ Incluye _Definición del producto_ clara e informativa.
+  
   ✔️ Incluye _sketch_ de la solución (prototipo de baja fidelidad).
+  
   ✔️ Incluye _Diseño de la Interfaz de Usuario_ (prototipo de alta fidelidad).
+  
   ✔️ UI: Muestra lista y/o tabla con datos.
+  
   ✔️ UI: Permite ordenar data por uno o más campos (asc y desc).
+  
   ✔️ UI: Permite filtrar data en base a una condición.
+  
   ✔️ UI: Es _responsive_.
 
 
