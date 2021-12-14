@@ -17,11 +17,8 @@
   ¿Quiénes son los principales usuarios de producto?
     
     -Deportistas.
-    
     -Entrenadores.
-    
     -Noticieros.
-    
     -Aficionados al deporte
 
   ¿Cuáles son los objetivos de estos usuarios en relación con el producto?
@@ -33,11 +30,13 @@
     - Ordenar los filtros de la A a la Z
 
   ¿Cuáles son los datos más relevantes que quieren ver en la interfaz y por qué?
+  
     - Que nuestro usuario pueda visualizar cuales son los 5 paises con mas medallas ese año. El gráfico representa el total de medallas que ha conseguido cada país con esto   nuestro usuario podrá buscar de mejor forma los atletas de su interés.
     - Las disciplinas de mayor relevancia y con mas vistas en los medios de comunicación para facilitar la búsqueda a los noticieros.
     - La cantidad de mujeres con mas medallas que hombres o la competencia según su género
 
   ¿Cuándo utilizan o utilizarían el producto?
+  
     - Cuando surja alguna inquietud sobre conocer a los ganadores de cada país
     - Cuando se necesite tener información de las olimpiadas
 
