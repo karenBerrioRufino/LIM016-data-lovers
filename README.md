@@ -3,16 +3,20 @@
 ## Índice
 
 * [1. DEFINICIÓN DEL PRODUCTO](#1-DEFINICIÓN-DEL-PRODUCTO)
-* [2. PROTOTIPO DE BAJA FIDELIDAD](#2-PROTOTIPO-DE-BAJA-FIDELIDAD)
-* [3. PROTOTIPO DE ALTA FIDELIDAD](#3-PROTOTIPO-DE-ALTA-FIDELIDAD)
-* [4. TESTS](#4-TESTS)
-* [5. HERRAMIENTAS](#5-HERRAMIENTAS)
-* [6. CHECKLIST](#6-CHECKLIST)
-* [7. AUTORAS](#7-AUTORAS)
+* [2. HISTORIAS DE USUARIO](#2-HISTORIAS-DE-USUARIO)
+* [3. PROTOTIPO DE BAJA FIDELIDAD](#3-PROTOTIPO-DE-BAJA-FIDELIDAD)
+* [4. PROTOTIPO DE ALTA FIDELIDAD](#4-PROTOTIPO-DE-ALTA-FIDELIDAD)
+* [5. TESTS](#5-TESTS)
+* [6. HERRAMIENTAS](#6-HERRAMIENTAS)
+* [7. CHECKLIST](#7-CHECKLIST)
+* [8. AUTORAS](#8-AUTORAS)
 
 ***
+## 1. DEFINICION DE PRODUCTO
 
-## 1. DEFINICIÓN DEL PRODUCTO
+Esta es una pagina web para los Juegos Olímpicos de Rio 2016. Fue diseñado pensando en el usuario, por lo que tuvimos la intención de hacer una página intuitiva, sencilla, útil y con colores que no perturben la vista del usuario. La página web tiene varias funcionalidades como: el filtrado, la busqueda o el ordenamiento. Además, hay información que puedes tener a primera instancia.
+
+## 2. HISTORIAS DE USUARIO
 
   ¿Quiénes son los principales usuarios de producto?
     
@@ -26,14 +30,13 @@
     - Buscar datos acerca de la participación de los deportistas masculinos y femeninos en los diferentes disciplinas de los juegos olímpicos.
     - Buscar a los deportistas de alto nivel mundial .
     - Buscar como debe ser el nivel para llegar a los juegos.
-    - Hacer filtros según el país, medallas, disciplinas y atletas
+    - Hacer filtros según el país, disciplinas y atletas.
     - Ordenar los filtros de la A a la Z
 
   ¿Cuáles son los datos más relevantes que quieren ver en la interfaz y por qué?
   
-    - Que nuestro usuario pueda visualizar cuales son los 5 paises con mas medallas ese año. El gráfico representa el total de medallas que ha conseguido cada país con esto   nuestro usuario podrá buscar de mejor forma los atletas de su interés.
+    - Que nuestro usuario pueda visualizar cuales son los 10 paises con mas medallas ese año. El gráfico representa el total de medallas que ha conseguido cada país, con esto, nuestro usuario podrá buscar de mejor forma los atletas de su interés.
     - Las disciplinas de mayor relevancia y con mas vistas en los medios de comunicación para facilitar la búsqueda a los noticieros.
-    - La cantidad de mujeres con mas medallas que hombres o la competencia según su género
 
   ¿Cuándo utilizan o utilizarían el producto?
   
@@ -72,18 +75,17 @@
 
 ## 6. CHECKLIST
 
-  * [✓] Usa VanillaJS.
-  * [✓] Pasa linter (`npm run pretest`)
-  * [✓] Pasa tests (`npm test`)
-  * [✓] Pruebas unitarias cubren un mínimo del 70% de statements, functions y
-    lines y branches.
-  * [✓] Incluye _Definición del producto_ clara e informativa en.
-  * [✓] Incluye _sketch_ de la solución (prototipo de baja fidelidad).
-  * [✓] Incluye _Diseño de la Interfaz de Usuario_ (prototipo de alta fidelidad).
-  * [✓] UI: Muestra lista y/o tabla con datos.
-  * [✓] UI: Permite ordenar data por uno o más campos (asc y desc).
-  * [✓] UI: Permite filtrar data en base a una condición.
-  * [✓] UI: Es _responsive_.
+  * ✔️ Usa VanillaJS.
+  * ✔️ Pasa linter (`npm run pretest`)
+  * ✔️ Pasa tests (`npm test`)
+  * ✔️ Pruebas unitarias cubren un mínimo del 70% de statements, functions, lines y branches.
+  * ✔️ Incluye _Definición del producto_ clara e informativa en.
+  * ✔️ Incluye _sketch_ de la solución (prototipo de baja fidelidad).
+  * ✔️ Incluye _Diseño de la Interfaz de Usuario_ (prototipo de alta fidelidad).
+  * ✔️ UI: Muestra lista y/o tabla con datos.
+  * ✔️ UI: Permite ordenar data por uno o más campos (asc y desc).
+  * ✔️ UI: Permite filtrar data en base a una condición.
+  * ✔️ UI: Es _responsive_.
 
 
 ## 7. AUTORAS
