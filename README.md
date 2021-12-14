@@ -76,6 +76,7 @@ Esta es una pagina web para los Juegos Olímpicos de Rio 2016. Fue diseñado pen
 ## 6. CHECKLIST
 
   ✔️ Usa VanillaJS.
+  
   ✔️ Pasa linter (`npm run pretest`)
   ✔️ Pasa tests (`npm test`)
   ✔️ Pruebas unitarias cubren un mínimo del 70% de statements, functions, lines y branches.
