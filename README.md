@@ -77,11 +77,9 @@
   * [✓] Pasa tests (`npm test`)
   * [✓] Pruebas unitarias cubren un mínimo del 70% de statements, functions y
     lines y branches.
-  * [✓] Incluye _Definición del producto_ clara e informativa en `README.md`.
-  * [✓] Incluye _sketch_ de la solución (prototipo de baja fidelidad) en
-    `README.md`.
-  * [✓] Incluye _Diseño de la Interfaz de Usuario_ (prototipo de alta fidelidad)
-    en `README.md`.
+  * [✓] Incluye _Definición del producto_ clara e informativa en.
+  * [✓] Incluye _sketch_ de la solución (prototipo de baja fidelidad).
+  * [✓] Incluye _Diseño de la Interfaz de Usuario_ (prototipo de alta fidelidad).
   * [✓] UI: Muestra lista y/o tabla con datos.
   * [✓] UI: Permite ordenar data por uno o más campos (asc y desc).
   * [✓] UI: Permite filtrar data en base a una condición.
