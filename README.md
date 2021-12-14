@@ -49,13 +49,9 @@ Esta es una pagina web para los Juegos Olímpicos de Rio 2016. Fue diseñado pen
 
 ## 3. PROTOTIPO DE ALTA FIDELIDAD
 
-   ![image](https://user-images.githubusercontent.com/91863929/145941109-37e650db-cb75-42e2-b3d7-a90bde1eb36b.png)
+   ![image](https://user-images.githubusercontent.com/91863929/145941109-37e650db-cb75-42e2-b3d7-a90bde1eb36b.png) ![image](https://user-images.githubusercontent.com/91863929/145941214-4010d29a-9155-48eb-909e-98d88eb7534a.png)
 
-   ![image](https://user-images.githubusercontent.com/91863929/145941214-4010d29a-9155-48eb-909e-98d88eb7534a.png)
-
-   ![image](https://user-images.githubusercontent.com/91863929/145941312-1f3c9289-d245-419b-a80d-fb2591d17bd1.png)
-
-   ![image](https://user-images.githubusercontent.com/91863929/145941598-d72f16ec-aef2-40a6-b36b-41c14935aec2.png)
+   ![image](https://user-images.githubusercontent.com/91863929/145941312-1f3c9289-d245-419b-a80d-fb2591d17bd1.png)  ![image](https://user-images.githubusercontent.com/91863929/145941598-d72f16ec-aef2-40a6-b36b-41c14935aec2.png)
 
    ![image](https://user-images.githubusercontent.com/91863929/145941670-d6e50475-fd03-4db5-9fc8-967c36036575.png)
 
