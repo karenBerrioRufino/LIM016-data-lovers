@@ -15,12 +15,17 @@
 ## 1. DEFINICIÓN DEL PRODUCTO
 
   ¿Quiénes son los principales usuarios de producto?
+    
     -Deportistas.
+    
     -Entrenadores.
+    
     -Noticieros.
+    
     -Aficionados al deporte
 
   ¿Cuáles son los objetivos de estos usuarios en relación con el producto?
+  
     - Buscar datos acerca de la participación de los deportistas masculinos y femeninos en los diferentes disciplinas de los juegos olímpicos.
     - Buscar a los deportistas de alto nivel mundial .
     - Buscar como debe ser el nivel para llegar a los juegos.
