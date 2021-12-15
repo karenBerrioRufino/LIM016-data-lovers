@@ -1,133 +1,171 @@
-
-import { functionAll,filterByTeamFunc,sortData, sortByName, computeData, computeDataTwo } from '../src/data.js';
-
-describe('probando la funcion functionAll', () => {
-  it('debe ser una funcion', () => {
-    expect(typeof functionAll).toBe('function');
-  }); 
-});
-
-it ('deberia retornar cuantos atletas por el pais "France', ()=>{
-  let arrayTest = [  {
-    "name": "Tijana Bogdanovi",
-    "gender": "F",
-    "height": "172",
-    "weight": "52",
-    "sport": "Taekwondo",
-    "team": "Serbia",
-    "noc": "SRB",
-    "age": 18,
-    "event": "Taekwondo Women's Flyweight",
-    "medal": "Silver"
-  },
-  {
-    "name": "Andreea Boghian",
-    "gender": "F",
-    "height": "186",
-    "weight": "78",
-    "sport": "Rowing",
-    "team": "Romania",
-    "noc": "ROU",
-    "age": 24,
-    "event": "Rowing Women's Coxed Eights",
-    "medal": "Bronze"
-  },
-  {
-    "name": "Thibault Colard",
-    "gender": "M",
-    "height": "187",
-    "weight": "70",
-    "sport": "Rowing",
-    "team": "France",
-    "noc": "FRA",
-    "age": 24,
-    "event": "Rowing Men's Lightweight Coxless Fours",
-    "medal": "Bronze"
-  }];
-  let testFunctionAll = functionAll(arrayTest, filterByTeamFunc('France'));
-  expect (testFunctionAll.length).toBe(1);
-});
-
-it ('deberia ordenar atletas de manera descendente',() => {
-  
-  let arrayTest2 =[ {
-    "name": "Robson Donato Conceio",
-    "gender": "M",
-    "height": "171",
-    "weight": "57",
-    "sport": "Boxing",
-    "team": "Brazil",
-    "noc": "BRA",
-    "age": 27,
-    "event": "Boxing Men's Lightweight",
-    "medal": "Gold"
-  },
-  {
-    "name": "Julio",
-    "gender": "M",
-    "height": "193",
-    "weight": "80",
-    "sport": "Swimming",
-    "team": "United States",
-    "noc": "USA",
-    "age": 21,
-    "event": "Swimming Men's 4 x 200 metres Freestyle Relay",
-    "medal": "Gold"
-  },
-  {
-    "name": "Sally Conway",
-    "gender": "F",
-    "height": "167",
-    "weight": "70",
-    "sport": "Judo",
-    "team": "Great Britain",
-    "noc": "GBR",
-    "age": 29,
-    "event": "Judo Women's Middleweight",
-    "medal": "Bronze"
-  }];
-
-  let testSortData = sortData(arrayTest2, sortByName, false);
-
-  expect (testSortData[0].name).toBe("Sally Conway");
-  expect (testSortData[1].name).toBe("Robson Donato Conceio");
-  expect (testSortData[2].name).toBe("Julio");
-});
-
-
-describe('probando la funcion computeDataTwo', () => {
-  it('is a function', () => {
-    expect(typeof computeDataTwo).toBe('function');
-  });   
-});
-describe('probando la funcion computeData', () => {
-  it('is a function', () => {
-    expect(typeof computeData).toBe('function');
+import { describe, it } from 'eslint/lib/rule-tester/rule-tester';
+import{functionAll, allCountries, allSport, genderAll, filterByTeamFunc, filterBySportFunc, filterByGender, 
+      sortData, sortByName, sortByAge, sortByTotalMedals, computeData} from '../src/data.js';
+describe('probando la funcion functionAll teniendo como argumento filterByTeamFunc', () =>{
+  const demoCountries = [
+    {"team": "Italy"},
+    {"team": "France"},
+    {"team": "Iran"},
+    {"team": "Italy"},
+    {"team": "Italy"}
+  ];
+  it('debería retornar los atletas de Francia',() =>{
+    let result = functionAll( demoCountries, filterByTeamFunc("France"));
+    expect(result).toHaveLength(1);
   });
-  it ('Deberia retornar cuantas medallas de oro, plata y bronce para el pais "Canada"', () =>{
-    let mockData = [
-      {
-        "name": "Meaghan Benfeito",
-        "sport": "Diving",
-        "team": "Canada",
-        "noc": "CAN",
-        "medal": "Bronze"
-      },
-      {
-        "name": "Brittany \"Britt\" Benn",
-        "sport": "Rugby Sevens",
-        "team": "Canada",
-        "noc": "CAN",
-        "medal": "Bronze"
-      }
-    ]
-    let mockResult = computeData(mockData);
-    expect(mockResult[0].gold).toBe(0);
-    expect(mockResult[0].silver).toBe(0);
-    expect(mockResult[0].bronce).toBe(2);
-    expect(mockResult[0].total).toBe(2);
+});
+
+describe('probando la función functionAll teniendo como argumento filterBySportFunc', () => {
+  const demoSport = [
+    {"sport": "Rowing"},
+    {"sport": "Rowing"},
+    {"sport": "Taekwondo"},
+    {"sport": "Handball"}
+  ];
+  it('debería retornar los atletas del deporte', () =>{
+    let result = functionAll(demoSport, filterBySportFunc("Taekwondo"));
+    expect(result).toHaveLength(1);
   });
-  it('No deberia ser Null', () => {
-    expect(computeData).not.toBeNull();
+});
+
+describe ('probando la función functionAll teniendo como argumento filterByGender', () =>{
+  const demoFunction = [
+      {"gender": "M"},
+      {"gender": "F"},
+      {"gender": "M"}
+  ];
+  it('debería retornar la cantidad de atletas femeninas', ()=>{
+    let result = functionAll(demoFunction, filterByGender("F"));
+    expect(result).toHaveLength(1);
+  });
+});
+
+describe ('probando la función allCountries', () => {
+  const demoCountries = [
+    {"team": "Italy"},
+    {"team": "France"},
+    {"team": "Iran"},
+    {"team": "Italy"},
+    {"team": "Italy"}
+  ];
+  it('debería retornar los paises sin repetición', () => {
+    let result = Array.from(allCountries(demoCountries));
+    expect(result.length).toEqual(3);
+  });
+});
+
+describe('probando la función allSport', () => {
+  const demoSport = [
+    {"sport": "Rowing"},
+    {"sport": "Rowing"},
+    {"sport": "Taekwondo"},
+    {"sport": "Handball"}
+  ];
+  it('debería retornar los deportes sin repetición', () =>{
+    let result = Array.from(allSport(demoSport));
+    expect(result.length).toEqual(3);
+  });
+});
+
+describe ('probando la funcion genderAll', () =>{
+  const demoGender = [
+  {"gender": "M"},
+  {"gender": "F"},
+  {"gender": "M"}
+];
+  it('deberia retornar "M" y "F" sin repeticiones', () =>{
+    let result = Array.from(genderAll(demoGender));
+    expect(result.length).toEqual(2); //dos es la cantidad de resultados
+  });
+});
+
+describe('probando la función sortData teniendo como argumento sortByName', () => {
+  const demoName = [
+    {"name": "Giovanni Abagnale"},
+    {"name": "Patimat Abakarova"},
+    {"name": "Luc Abalo"}
+  ];
+  it ('debería ordenar los atletas filtrados de forma ascendente', () => {
+    let arrExpected = [
+      {"name": "Giovanni Abagnale"},
+      {"name": "Luc Abalo"},
+      {"name": "Patimat Abakarova"}
+    ];
+    let result = sortData(demoName, sortByName, true);
+    expect(result).toStrictEqual(arrExpected);
+  });
+  it('debería ordenar los atletas filtrados de forma descendente', () => {
+    let arrExpected = [
+      {"name": "Patimat Abakarova"},
+      {"name": "Luc Abalo"},
+      {"name": "Giovanni Abagnale"}     
+    ];
+    let result = sortData(demoName, sortByName, false);
+    expect(result).toStrictEqual(arrExpected);
+  });
+  it('debería retornar 0 si los dos nombre son iguales', () =>{
+    let result = sortByName(
+      {"name": "Patimat Abakarova"},
+      {"name": "Patimat Abakarova"} 
+    );
+    expect(result).toStrictEqual(0);
+  });
+});
+
+describe('probando la función sortData teniendo como argumento sortByAge', () => {
+  const demoAge = [
+      {"age": 21},
+      {"age": 31},
+      {"age": 26}
+  ];
+  it('debería ordenar la edad de los atletas filtrados de forma ascendente', () => {
+    let arrExpected = [
+      {"age": 21}, 
+      {"age": 26},
+      {"age": 31}
+    ];
+    let result = sortData(demoAge, sortByAge, true);
+    expect(result).toStrictEqual(arrExpected);
+  });
+  it('debería retornar 0 si las edades son iguales', () =>{
+    let result = sortByAge(
+      {"age": 21}, 
+      {"age": 21}
+    );
+      expect(result).toStrictEqual(0);
+  });
+});
+
+describe('probando la funcion sortByTotalMedals', ()=>{
+  it('debería retornar el total de medallas por país de forma ascendente', ()=>{
+    let result = sortByTotalMedals({total: 300}, {total: 1000});
+    expect(result).toStrictEqual(1);
+  });
+  it('debería retornar el total de medallas por país de forma descendente', () =>{
+    let result = sortByTotalMedals({total: 1000}, {total: 300});
+    expect(result).toStrictEqual(-1);
+  });
+  it('debería retornar 0 si los resultados son iguales', () => {
+    let result = sortByTotalMedals({total: 300}, {total: 300});
+    expect(result).toStrictEqual(0);
+  });
+});
+describe('probando la función computeData', () =>{
+  const demoMedal =[
+    {"team": "Italy",
+     "medal": "Bronze"},
+    {"team": "Italy",
+     "medal": "Bronze"},
+    {"team": "Italy",
+    "medal": "Silver"},
+    {"team": "Italy",
+     "medal": "Gold"}
+  ];
+  it('debería indicar cuantas medallas ganó Italia y el total', () =>{
+    let result = computeData(demoMedal);
+    expect(result[0].bronce).toStrictEqual(2);
+    expect(result[0].silver).toStrictEqual(1);
+    expect(result[0].gold).toStrictEqual(1);
+    expect(result[0].total).toStrictEqual(4);
   });
 });

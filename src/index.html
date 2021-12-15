@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html>
-
-
 <head>
   <meta charset="utf-8">
   <title>Data Lovers</title>
@@ -16,8 +14,6 @@
       <p>Um mundo novo</p>
     </nav>
   </header><br><br>
-
-  <!--CARRUSEL DE FOTOS-->
   <div class="carouselContainer" id="carousel">
     <ul class="sliderImg">
       <li id="slide1"><img src="./imagenes/carousel1.jpeg" alt="Photo1">
@@ -45,67 +41,48 @@
     </ul>
   </div>
   <div class="containerQuery">
-    <!--aqui va el filtro y el ordenar-->
     <section class="filterContainer" id="principal">
       <div class="filterTeamAndSport">
         <label> PAIS:<br></label>
         <select id="team">
-          <!--filtro de pais-->
         </select>
-
       </div>
-
       <div id="displaySport" class="filterTeamAndSport">
         <label> DEPORTE:<br></label>
         <select id="sport">
-          <!--filtro de deporte-->
         </select>
       </div>
-
       <form class="containerGender filterTeamAndSport">
         <label> GENERO:<br></label>
         <select name="gender" id="gender" class="gender">
           <option value="todos" selected>Todos</option>
         </select>
       </form>
-
-      <!-- Lista de selección  para ordenar-->
-
       <div id="displayOrder" class="filterTeamAndSport">
         <label>ORDENAR:<br></label>
         <select id="orderBySelect" name="combo">
-          <!-- Opciones de la lista (*con selected puedo colocar una opcion por defecto* OJO) -->
           <option value="1">Edad</option>
           <option value="2">nombres de manera ascendente</option>
           <option value="3">nombres de manera descendente</option>
         </select>
       </div>
     </section>
-
-    <!----Buscador---->
     <div class="containerSearch">
       <input type="text" id="search" class="search" placeholder="Encuentra a un atleta ">
       <i class="fas fa-search" id="i"></i>
     </div>
   </div>
-
-  <!--mensaje de error-->
   <section id="error" class="error2">
     <h1 class="h1Error"> No se encontraron atletas para esta busqueda.<br>¡Intenta nuevamente!</h1>
-
     <img class="imgMsjError" src="./imagenes/mascotasoficiales.png">
   </section>
-
-
   <section id="gridForTest" class="grid">
-    <!----plantilla de los atletas-->
   </section>
   <br>
   <main>
     <section id="containerFatherMain" class="containerFatherMain">
       <div id="smallTable" class="smallTable">
         <table class="tableMedals" id="tableMedals">
-          <!--border="1"-->
           <caption>🥇🥈🥉
             <br>Tabla de Medallas
           </caption>
@@ -146,9 +123,7 @@
           </div>
         </section>
       </div>
-
     </section>
-    <!--medallero grande-->
     <div id="bigTable">
       <table class="tableMedalsModal" id="tableMedalsModal" border="1">
         <button title="cerrar" id="close" class="buttonModal">X</button>
@@ -164,13 +139,10 @@
         </tr>
       </table>
     </div>
-
-    <!--Boton de Volver Arriba-->
     <a href="#principal"><img class="btnArriba" id="btnArriba" title="Volver arriba" src="./imagenes/btnArriba.png"
         alt=""></a>
   </main>
   <br>
-
   <footer class="copyright">
     <p>Copyright © 2021. Todos los derechos reservados.
       Juegos Olímpicos - Río 2016
@@ -178,5 +150,4 @@
   </footer>
   <script src="main.js" type="module"></script>
 </body>
-
 </html>
